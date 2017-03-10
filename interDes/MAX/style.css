@@ -1,0 +1,129 @@
+@import 'https://fonts.googleapis.com/css?family=Philosopher';
+
+body, html{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    font-family: Philosopher, Arial, "Calibri Light";
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    background-color: #448AFF;
+    color: #FFFFF7;
+}
+
+#top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6efe2;
+    color: #2c3e50;
+    height: 5em;
+    z-index: 0;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("img/bck2.jpg");
+    background-size: contain;
+    height: inherit;
+}
+
+#btm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6efe2;
+    color: #000;
+    height: 3em;
+    z-index: 0;
+}
+
+/* MAIN CONTAINER BELOW */
+
+#sidebar_1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    width: 30%;
+}
+
+#sidebar_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    width: 30%;
+}
+
+#main_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(103,161,215, 0.5);
+    width: 40%;
+    height: 100%;
+    min-width: 40%;
+}
+
+h3, h2{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    color: #FFFFF7;
+}
+
+h3{
+    margin-bottom: 40%;
+}
+
+.SOCIAL_IMG{
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+}
+
+/* UNUSED
+
+.ICON{
+    width: 50px;
+    margin-right: 20px;
+}
+
+*/
+
+/* BUTTON STYLING BELOW */
+
+.BUTTON{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #448AFF;
+    margin-bottom: 5px;
+    color: #FFFFF7;
+    font-size: 18px;
+}
+
+.BUTTON:hover{
+    background-color: #aa3327;
+    cursor: pointer;
+}
+
+#surprise_me_btn{
+    margin-top: 10%;
+}
