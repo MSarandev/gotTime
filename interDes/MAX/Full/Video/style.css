@@ -59,6 +59,8 @@ body{
     align-items: center;
     height: inherit;
     width: 30%;
+    background-image: url("img/sidebar_movie.png");
+    background-size: cover;
 }
 
 #sidebar_2{
@@ -68,6 +70,8 @@ body{
     align-items: center;
     height: inherit;
     width: 30%;
+    background-image: url("img/sidebar_movie.png");
+    background-size: cover;
 }
 
 #main_main{
@@ -187,8 +191,19 @@ RESOLUTION CHANGES
         min-width: 100%;
     }
 
+    .CONT_1{
+        width: 100%;
+        min-width: 100%;
+    }
+
+    #cont2{
+        margin-top: 0;
+    }
+
     .BUTTON{
-        /* CHANGE ME */
+        justify-content: space-between;
+        width: auto;
+        margin-left: 1px;
     }
 }
 
