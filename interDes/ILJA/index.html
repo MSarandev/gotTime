@@ -3,270 +3,318 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Got time?</title>
+  <title>Got time?</title>
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
 
 </head>
 
 <body>
 
-    <section id="logo-section" class="text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="logo text-center">
-                        <h1>Got time?</h1>
-                        <span>Your time eater webpage!</span>
-                    </div>
-                </div>
-            </div>
+  <section id="logo-section" class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="logo text-center">
+            <h1>Got time?</h1>
+            <span>Your time eater webpage!</span>
+          </div>
         </div>
-    </section>
-
-
-    <div class="mainbody-section text-center">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div class="menu-item blue" onclick="clickMeFilms()">
-                        <a href="#" data-toggle="modal" id="ModalFilmsGanres">
-                            <i id="FilmGanreIcon" class="glyphicon glyphicon-facetime-video"></i>
-                            <p id="filmsID">Films</p>
-                        </a>
-                    </div>
-
-                    <div class="menu-item green" onclick="clickMeMusic()">
-                        <a href="#" data-toggle="modal" id="ModalMusicGanres">
-                            <i id="MusicGanreIcon" class="fa fa-music"></i>
-                            <p id="musicID" >Music</p>
-                        </a>
-                    </div>
-
-                    <script>
-                    var count = 0;
-
-                    function clickMeFilms(){
-
-                      if(count == 0){
-                          count = 1;
-                          document.getElementById("musicID").innerHTML = "Romantic";
-                          document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-heart-empty";
-                          document.getElementById("FilmGanreIcon").className = "glyphicon glyphicon-map-marker";
-                          document.getElementById("filmsID").innerHTML = "War films";
-                           document.getElementById("AboutusGanreIcon").className = "glyphicon glyphicon-record";
-                          document.getElementById("aboutusID").innerHTML = "Thriller";
-                          document.getElementById("BooksGanreIcon").className = "glyphicon glyphicon-fire";
-                          document.getElementById("booksID").innerHTML = "Horror";
-                          document.getElementById("VideoGanreIcon").className = "glyphicon glyphicon-film";
-                          document.getElementById("videoID").innerHTML = "Western";
-                          document.getElementById("RandomGanreIcon").className = "fa fa-xing-square";
-                          document.getElementById("randomID").innerHTML = "Animation";
-                      }else{
-                          document.getElementById("ModalFilmsGanres").setAttribute("href", "#films-modal");
-                      }
-                    }
-
-                      var count = 0;
-
-                      function clickMeMusic(){
-
-                      if(count == 0){
-                          count = 1;
-                          document.getElementById("musicID").innerHTML = "Jazz";
-                          document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-sound-7-1";
-                          document.getElementById("FilmGanreIcon").className = "fa fa-fire";
-                          document.getElementById("filmsID").innerHTML = "Rock";
-                           document.getElementById("AboutusGanreIcon").className = "glyphicon glyphicon-stats";
-                          document.getElementById("aboutusID").innerHTML = "Techno";
-                          document.getElementById("BooksGanreIcon").className = "glyphicon glyphicon-music";
-                          document.getElementById("booksID").innerHTML = "Classical period";
-                          document.getElementById("VideoGanreIcon").className = "fa fa-microphone";
-                          document.getElementById("videoID").innerHTML = "Opera";
-                          document.getElementById("RandomGanreIcon").className = "fa fa-money";
-                          document.getElementById("randomID").innerHTML = "Trap music";
-                      }else{
-                          document.getElementById("ModalMusicGanres").setAttribute("href", "#music-modal");
-                      }
-                    }
-                    </script>
-
-
-                    <div class="menu-item light-red">
-                        <a href="#aboutus-modal" data-toggle="modal">
-                            <i id="AboutusGanreIcon" class="fa fa-user"></i>
-                            <p id="aboutusID">About Us</p>
-                        </a>
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6">
-
-                    <div class="menu-item brown">
-                        <a href="#books-modal" data-toggle="modal">
-                            <i id="BooksGanreIcon" class="fa fa-book"></i>
-                            <p id="booksID">Book's</p>
-                        </a>
-                    </div>
-
-                    <div class="menu-item red">
-                        <a href="#video-modal" data-toggle="modal">
-                            <i id="VideoGanreIcon" class="glyphicon glyphicon-hd-video"></i>
-                            <p id="videoID">Video</p>
-                        </a>
-                    </div>
-
-                    <div class="menu-item blue">
-                        <a href="#random-modal" data-toggle="modal">
-                            <i id="RandomGanreIcon" class="fa fa-random"></i>
-                            <p id="randomID">Random!</p>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="copyright text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    ..!..
-                </div>
-            </div>
+
+  <div class="mainbody-section text-center">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6">
+          <div class="menu-item blue" onclick="clickMeFilms()">
+            <a href="#" data-toggle="modal" id="ModalFilmsGanres">
+              <i id="FilmGanreIcon" class="glyphicon glyphicon-facetime-video"></i>
+              <p id="filmsID">Films</p>
+            </a>
+          </div>
+
+          <div class="menu-item green" onclick="clickMeMusic()">
+            <a href="#" data-toggle="modal" id="ModalMusicGanres">
+              <i id="MusicGanreIcon" class="fa fa-music"></i>
+              <p id="musicID" >Music</p>
+            </a>
+          </div>
+
+          <script>
+            var count = 0;
+
+            function clickMeFilms(){
+
+              if(count == 0){
+                count = 1;
+                document.getElementById("musicID").innerHTML = "Romantic";
+                document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-heart-empty";
+                document.getElementById("FilmGanreIcon").className = "glyphicon glyphicon-map-marker";
+                document.getElementById("filmsID").innerHTML = "War films";
+                document.getElementById("AboutusGanreIcon").className = "glyphicon glyphicon-record";
+                document.getElementById("aboutusID").innerHTML = "Thriller";
+                document.getElementById("BooksGanreIcon").className = "glyphicon glyphicon-fire";
+                document.getElementById("booksID").innerHTML = "Horror";
+                document.getElementById("VideoGanreIcon").className = "glyphicon glyphicon-film";
+                document.getElementById("videoID").innerHTML = "Western";
+                document.getElementById("RandomGanreIcon").className = "fa fa-xing-square";
+                document.getElementById("randomID").innerHTML = "Back";
+                document.getElementById("ModalRandomGanres").setAttribute("href", window.location.href)
+              }else{
+                document.getElementById("ModalFilmsGanres").setAttribute("href", "#films-modal");
+              }
+            }
+
+
+            function clickMeMusic(){
+
+              if(count == 0){
+                count = 1;
+                document.getElementById("musicID").innerHTML = "Jazz";
+                document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-sound-7-1";
+                document.getElementById("FilmGanreIcon").className = "fa fa-fire";
+                document.getElementById("filmsID").innerHTML = "Rock";
+                document.getElementById("AboutusGanreIcon").className = "glyphicon glyphicon-stats";
+                document.getElementById("aboutusID").innerHTML = "Techno";
+                document.getElementById("BooksGanreIcon").className = "glyphicon glyphicon-music";
+                document.getElementById("booksID").innerHTML = "Classical period";
+                document.getElementById("VideoGanreIcon").className = "fa fa-microphone";
+                document.getElementById("videoID").innerHTML = "Opera";
+                document.getElementById("RandomGanreIcon").className = "fa fa-xing-square";
+                document.getElementById("randomID").innerHTML = "Back";
+                document.getElementById("ModalRandomGanres").setAttribute("href", window.location.href)
+              }else{
+                document.getElementById("ModalMusicGanres").setAttribute("href", "#music-modal");
+              }
+            }
+
+
+            function clickMeBooks(){
+
+              if(count == 0){
+                count = 1;
+                document.getElementById("musicID").innerHTML = "Romantic";
+                document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-heart-empty";
+                document.getElementById("FilmGanreIcon").className = "fa fa-pagelines";
+                document.getElementById("filmsID").innerHTML = "Mystery";
+                document.getElementById("AboutusGanreIcon").className = "fa fa-puzzle-piece";
+                document.getElementById("aboutusID").innerHTML = "Satire";
+                document.getElementById("booksID").innerHTML = "Horror";
+                document.getElementById("BooksGanreIcon").className = "fa fa-eye-slash";
+                document.getElementById("VideoGanreIcon").className = "fa fa-magic";
+                document.getElementById("videoID").innerHTML = "Mystery";
+                document.getElementById("RandomGanreIcon").className = "fa fa-xing-square";
+                document.getElementById("randomID").innerHTML = "Back";
+                document.getElementById("ModalRandomGanres").setAttribute("href", window.location.href)
+              }else{
+                document.getElementById("ModalBooksGanres").setAttribute("href", "#books-modal");
+              }
+            }
+
+
+            function clickMeVideo(){
+
+              if(count == 0){
+                count = 1;
+                document.getElementById("musicID").innerHTML = "DIY";
+                document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-wrench";
+                document.getElementById("FilmGanreIcon").className = "glyphicon glyphicon-certificate";
+                document.getElementById("filmsID").innerHTML = "Sport";
+                document.getElementById("AboutusGanreIcon").className = "fa fa-bug";
+                document.getElementById("aboutusID").innerHTML = "Science";
+                document.getElementById("BooksGanreIcon").className = "fa fa-pencil";
+                document.getElementById("booksID").innerHTML = "Beauty";
+                document.getElementById("VideoGanreIcon").className = "fa fa-microphone";
+                document.getElementById("videoID").innerHTML = "Cover";
+                document.getElementById("RandomGanreIcon").className = "fa fa-xing-square";
+                document.getElementById("randomID").innerHTML = "Back";
+                document.getElementById("ModalRandomGanres").setAttribute("href", window.location.href)
+              }else{
+                document.getElementById("ModalVideoGanres").setAttribute("href", "#video-modal");
+              }
+            }
+          </script>
+
+
+          <div class="menu-item light-red">
+            <a href="#aboutus-modal" data-toggle="modal">
+              <i id="AboutusGanreIcon" class="fa fa-user"></i>
+              <p id="aboutusID">About Us</p>
+            </a>
+          </div>
+
         </div>
-    </div>
 
 
-    <!-- Films -->
-    <div class="section-modal modal fade" id="films-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-6">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
+          <div class="menu-item brown" onclick="clickMeBooks()">
+            <a href="#" data-toggle="modal" id="ModalBooksGanres">
+              <i id="BooksGanreIcon" class="fa fa-book"></i>
+              <p id="booksID">Book's</p>
+            </a>
+          </div>
 
-                        <div class="films">
-                            <img src="images/powerrangers.jpg" width="189" height="255" alt="lorem">
-                            <div class="feature-content">
-                                <h4>Power Rangers (2017)</h4>
-                                <p>A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world.</p>
-                                <p>
+          <div class="menu-item red" onclick="clickMeVideo()">
+            <a href="#" data-toggle="modal" id="ModalVideoGanres">
+              <i id="VideoGanreIcon" class="glyphicon glyphicon-hd-video"></i>
+              <p id="videoID">Video</p>
+            </a>
+          </div>
 
-                                    <div class="table-responsive">
-                                      <table class="table">
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Director:</td>
-                                            <td>Dean Israelite</td>
-                                        </tr>
-                                    </table>
-                                </div>
-
-                            </p>
-                            <a href="/" class="but">Watch the Film</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-6">
-
-                    <div class="films">
-                        <img src="images/powerrangers.jpg" width="189" height="255" alt="lorem">
-                        <div class="feature-content">
-                            <h4>Power Rangers (2017)</h4>
-                            <p>A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world.</p>
-                            <p>
-
-                                <div class="table-responsive">
-                                  <table class="table">
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Director:</td>
-                                        <td>Dean Israelite</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                        </p>
-                        <a href="/" class="but">Watch the Film</a>
-                    </div>
-                </div>
-            </div>
+          <div class="menu-item blue">
+            <a href="#random-modal" data-toggle="modal" id="ModalRandomGanres">
+              <i id="RandomGanreIcon" class="fa fa-random"></i>
+              <p id="randomID">Random!</p>
+            </a>
+          </div>
 
         </div>
+      </div>
     </div>
+  </div>
 
+  <div class="copyright text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+        Desing By <a href="#aboutus-modal" data-toggle="modal">Ilja</a>. and bla bla bla..
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!-- Films -->
+<div class="section-modal modal fade" id="films-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="films">
+            <img src="images/powerrangers.jpg" width="189" height="255" alt="lorem">
+            <div class="feature-content">
+              <h4>Power Rangers (2017)</h4>
+              <p>A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world.</p>
+              <p>
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </p>
+              <a href="/" class="but">Watch the Film</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+
+          <div class="films">
+            <img src="images/powerrangers.jpg" width="189" height="255" alt="lorem">
+            <div class="feature-content">
+              <h4>Power Rangers (2017)</h4>
+              <p>A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world.</p>
+              <p>
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                    <tr>
+                      <td>Director:</td>
+                      <td>Dean Israelite</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </p>
+              <a href="/" class="but">Watch the Film</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>
 <!-- End films Section -->
 
@@ -274,336 +322,336 @@
 
 <!-- Music -->
 <div class="section-modal modal fade" id="music-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
         </div>
+      </div>
+    </div>
 
-        <div class="container">
-            <div class="row">
-              <div class="col-md-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
 
-                <button type="button" class="btn btn-default btn-lg">
-                  <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-              </button>
-              <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-          </div>
-          <div class="col-md-4">
-
-            <button type="button" class="btn btn-default btn-lg">
-              <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
           </button>
           <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
 
-      </div>
-      <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
 
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-      </button>
-      <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-md-4">
+
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
+          </button>
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+      </div>
+    </div>
 
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-<div class="col-md-4">
-
-    <button type="button" class="btn btn-default btn-lg">
-      <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-  </button>
-  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-</div>
-</div>
-</div>
-
-</div>
 </div>
 <!-- Music -->
 
 <!-- Books -->
 <div class="section-modal modal fade" id="books-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
         </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-
-                    <div class="films">
-                        <img src="images/mount.jpg" width="189" height="255" alt="lorem">
-                        <div class="feature-content">
-                            <h4>Mount!</h4>
-                            <p>By: Jilly Cooper</p>
-                            <p>In Jilly Cooper's latest, raciest novel, Rupert Campbell-Black takes centre stage in the cut-throat world of flat racing. Rupert is consumed by one obsession: that Love Rat, his adored grey horse, be proclaimed champion stallion. He longs to trounce Roberto's Revenge, the stallion owned by his detested rival Cosmo Rannaldini, which means abandoning his racing empire at Penscombe and his darling wife Taggie, and chasing winners in the richest races worldwide, from Dubai to Los Angeles to Melbourne. Luckily, the fort at home is held by Rupert's assistant Gav, a genius with horses, fancied by every stable lass, but damaged by alcoholism and a vile wife. When Gala, a grieving but ravishing Zimbabwean widow moves to Penscombe as carer for Rupert's wayward father, it is not just Gav who is attracted to her: a returning Rupert finds himself dangerously tempted. Gala adores horses, and when she switches to working in the yard, her carer's job is taken by a devastatingly handsome South African man who claims to be gay but seems far keener on caring for the angelic Taggie. And as increasingly sinister acts of sabotage strike at Penscombe, the game of musical loose boxes gathers apace ...Everybody loves Jilly Cooper: "Sex and horses: who could ask for more? " (Sunday Telegraph). "Joyful and mischeivous". (Jojo Moyes). "A delight from start to finish". (Daily Mail). "Fun, sexy and unputdownable". (Marian Keyes). "Escape into an alternative universe in which all is right with the world". (Guardian). "Flawlessly entertaining". (Helen Fielding).</p>
-                            <p>
-
-                                <div class="table-responsive">
-                                  <table class="table">
-                                    <tr>
-                                        <td>Publication Date:</td>
-                                        <td>23/02/2017</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Publication Date:</td>
-                                        <td>23/02/2017</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Format:</td>
-                                        <td>Paperback</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                        </p>
-                        <a href="#" class="but">Read/Buy the Book</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-6">
-
-                <div class="films">
-                    <img src="images/mount.jpg" width="189" height="255" alt="lorem">
-                    <div class="feature-content">
-                        <h4>Mount!</h4>
-                        <p>By: Jilly Cooper</p>
-                        <p>In Jilly Cooper's latest, raciest novel, Rupert Campbell-Black takes centre stage in the cut-throat world of flat racing. Rupert is consumed by one obsession: that Love Rat, his adored grey horse, be proclaimed champion stallion. He longs to trounce Roberto's Revenge, the stallion owned by his detested rival Cosmo Rannaldini, which means abandoning his racing empire at Penscombe and his darling wife Taggie, and chasing winners in the richest races worldwide, from Dubai to Los Angeles to Melbourne. Luckily, the fort at home is held by Rupert's assistant Gav, a genius with horses, fancied by every stable lass, but damaged by alcoholism and a vile wife. When Gala, a grieving but ravishing Zimbabwean widow moves to Penscombe as carer for Rupert's wayward father, it is not just Gav who is attracted to her: a returning Rupert finds himself dangerously tempted. Gala adores horses, and when she switches to working in the yard, her carer's job is taken by a devastatingly handsome South African man who claims to be gay but seems far keener on caring for the angelic Taggie. And as increasingly sinister acts of sabotage strike at Penscombe, the game of musical loose boxes gathers apace ...Everybody loves Jilly Cooper: "Sex and horses: who could ask for more? " (Sunday Telegraph). "Joyful and mischeivous". (Jojo Moyes). "A delight from start to finish". (Daily Mail). "Fun, sexy and unputdownable". (Marian Keyes). "Escape into an alternative universe in which all is right with the world". (Guardian). "Flawlessly entertaining". (Helen Fielding).</p>
-                        <p>
-
-                            <div class="table-responsive">
-                              <table class="table">
-                                <tr>
-                                    <td>Publication Date:</td>
-                                    <td>23/02/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>Publication Date:</td>
-                                    <td>23/02/2017</td>
-                                </tr>
-                                <tr>
-                                    <td>Format:</td>
-                                    <td>Paperback</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                    </p>
-                    <a href="#" class="but">Read/Buy the Book</a>
-                </div>
-            </div>
-
-        </div>
-
+      </div>
     </div>
-</div>
 
-</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="films">
+            <img src="images/mount.jpg" width="189" height="255" alt="lorem">
+            <div class="feature-content">
+              <h4>Mount!</h4>
+              <p>By: Jilly Cooper</p>
+              <p>In Jilly Cooper's latest, raciest novel, Rupert Campbell-Black takes centre stage in the cut-throat world of flat racing. Rupert is consumed by one obsession: that Love Rat, his adored grey horse, be proclaimed champion stallion. He longs to trounce Roberto's Revenge, the stallion owned by his detested rival Cosmo Rannaldini, which means abandoning his racing empire at Penscombe and his darling wife Taggie, and chasing winners in the richest races worldwide, from Dubai to Los Angeles to Melbourne. Luckily, the fort at home is held by Rupert's assistant Gav, a genius with horses, fancied by every stable lass, but damaged by alcoholism and a vile wife. When Gala, a grieving but ravishing Zimbabwean widow moves to Penscombe as carer for Rupert's wayward father, it is not just Gav who is attracted to her: a returning Rupert finds himself dangerously tempted. Gala adores horses, and when she switches to working in the yard, her carer's job is taken by a devastatingly handsome South African man who claims to be gay but seems far keener on caring for the angelic Taggie. And as increasingly sinister acts of sabotage strike at Penscombe, the game of musical loose boxes gathers apace ...Everybody loves Jilly Cooper: "Sex and horses: who could ask for more? " (Sunday Telegraph). "Joyful and mischeivous". (Jojo Moyes). "A delight from start to finish". (Daily Mail). "Fun, sexy and unputdownable". (Marian Keyes). "Escape into an alternative universe in which all is right with the world". (Guardian). "Flawlessly entertaining". (Helen Fielding).</p>
+              <p>
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <td>Publication Date:</td>
+                      <td>23/02/2017</td>
+                    </tr>
+                    <tr>
+                      <td>Publication Date:</td>
+                      <td>23/02/2017</td>
+                    </tr>
+                    <tr>
+                      <td>Format:</td>
+                      <td>Paperback</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </p>
+              <a href="#" class="but">Read/Buy the Book</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+
+          <div class="films">
+            <img src="images/mount.jpg" width="189" height="255" alt="lorem">
+            <div class="feature-content">
+              <h4>Mount!</h4>
+              <p>By: Jilly Cooper</p>
+              <p>In Jilly Cooper's latest, raciest novel, Rupert Campbell-Black takes centre stage in the cut-throat world of flat racing. Rupert is consumed by one obsession: that Love Rat, his adored grey horse, be proclaimed champion stallion. He longs to trounce Roberto's Revenge, the stallion owned by his detested rival Cosmo Rannaldini, which means abandoning his racing empire at Penscombe and his darling wife Taggie, and chasing winners in the richest races worldwide, from Dubai to Los Angeles to Melbourne. Luckily, the fort at home is held by Rupert's assistant Gav, a genius with horses, fancied by every stable lass, but damaged by alcoholism and a vile wife. When Gala, a grieving but ravishing Zimbabwean widow moves to Penscombe as carer for Rupert's wayward father, it is not just Gav who is attracted to her: a returning Rupert finds himself dangerously tempted. Gala adores horses, and when she switches to working in the yard, her carer's job is taken by a devastatingly handsome South African man who claims to be gay but seems far keener on caring for the angelic Taggie. And as increasingly sinister acts of sabotage strike at Penscombe, the game of musical loose boxes gathers apace ...Everybody loves Jilly Cooper: "Sex and horses: who could ask for more? " (Sunday Telegraph). "Joyful and mischeivous". (Jojo Moyes). "A delight from start to finish". (Daily Mail). "Fun, sexy and unputdownable". (Marian Keyes). "Escape into an alternative universe in which all is right with the world". (Guardian). "Flawlessly entertaining". (Helen Fielding).</p>
+              <p>
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <td>Publication Date:</td>
+                      <td>23/02/2017</td>
+                    </tr>
+                    <tr>
+                      <td>Publication Date:</td>
+                      <td>23/02/2017</td>
+                    </tr>
+                    <tr>
+                      <td>Format:</td>
+                      <td>Paperback</td>
+                    </tr>
+                  </table>
+                </div>
+
+              </p>
+              <a href="#" class="but">Read/Buy the Book</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>
 <!-- Books -->
 
 <!-- Video -->
 <div class="section-modal modal fade" id="video-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
         </div>
-
-        <div class="container">
-          <div class="row">
-              <div class="col-xs-12 col-md-8">
-
-                  <img src="images/youtube1.jpg" width=100% height=100% alt="lorem">
-                  <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-              </div>
-              <div class="col-xs-6 col-md-4">
-
-               <img src="images/youtube2.jpg" width=100% height=100% alt="lorem">
-               <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-           </div>
-           <hr>
-           <div class="col-xs-6 col-md-4">
-
-               <img src="images/youtube3.jpg" width=100% height=100% alt="lorem" >
-               <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-           </div>
-       </div>
-       <div class="row">
-          <div class="col-xs-6">
-
-             <img src="images/youtube4.jpg" width=100% height=100% alt="lorem" >
-             <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-         </div>
-         <div class="col-xs-6">
-
-            <img src="images/youtube5.jpg" width=100% height=100% alt="lorem" >
-            <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
+      </div>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+
+          <img src="images/youtube1.jpg" width=100% height=100% alt="lorem">
+          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+        </div>
+        <div class="col-xs-6 col-md-4">
+
+         <img src="images/youtube2.jpg" width=100% height=100% alt="lorem">
+         <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+       </div>
+       <hr>
+       <div class="col-xs-6 col-md-4">
+
+         <img src="images/youtube3.jpg" width=100% height=100% alt="lorem" >
+         <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+       </div>
+     </div>
+     <div class="row">
+      <div class="col-xs-6">
+
+       <img src="images/youtube4.jpg" width=100% height=100% alt="lorem" >
+       <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+     </div>
+     <div class="col-xs-6">
+
+      <img src="images/youtube5.jpg" width=100% height=100% alt="lorem" >
+      <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
+
+    </div>
+  </div>
 </div>
 
 </div>
@@ -612,79 +660,80 @@
 
 <!-- About Us -->
 <div class="section-modal modal fade" id="aboutus-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
         </div>
+      </div>
+    </div>
 
-        <div class="container">
-          <div class="row">
-              <div class="col-xs-6 col-md-4">
-                            <div class="aboutus">
-                                <img src="images/iljaphoto.jpg" width=80% height=80% alt="lorem">
-                                <div class="feature-content">
-                                    <h4>Ilja Magdenko</h4>
-                                    <p>Urna maecenas primis sunt sodales. Luctus est sem faucibus accumsan nostrud. Urna ad feugiat qui himenaeos. Gravida euismod nostrud.</p>
-                                </div>
-                            </div>
+    <div class="container">
+      <div class="row"><center>
+        <div class="col-xs-6 col-md-4">
+          <div class="aboutus">
+            <img src="images/iljaphoto.jpg" width=80% height=80% alt="lorem">
+            <div class="feature-content">
+              <h4>Ilja Magdenko</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-4">                            <div class="aboutus">
+          <img src="images/iljaphoto.jpg" width=80% height=80% alt="lorem">
+          <div class="feature-content">
+            <h4>Ilja Magdenko</h4>
+          </div>
+        </div></div>
+        <div class="col-xs-6 col-md-4">                            <div class="aboutus">
+          <img src="images/iljaphoto.jpg" width=80% height=80% alt="lorem">
+          <div class="feature-content">
+            <h4>Ilja Magdenko</h4>
+          </div>
+        </div></div>
+      </center></div>
+      <div class="row"><center>
+        <div class="col-xs-6">                            <div class="aboutus">
+          <img src="images/iljaphoto.jpg" width=50% height=50% alt="lorem">
+          <div class="feature-content">
+            <h4>Ilja Magdenko</h4>
+          </div>
+        </div></div>
+        <div class="col-xs-6">
+          <div class="aboutus">
+            <div class="feature-content">
+              <div class="container4photo">
+                <img src="images/ilja.jpg" width=50% height=50% alt="Avatar" class="image4photo">
+                <div class="overlay4photo">
+                  <div class="text4photo">Info about me... I will add later...</div>
+                </div>
               </div>
-              <div class="col-xs-6 col-md-4">                            <div class="aboutus">
-                                <img src="images/iljaphoto.jpg" width=80% height=80% alt="lorem">
-                                <div class="feature-content">
-                                    <h4>Ilja Magdenko</h4>
-                                    <p>Urna maecenas primis sunt sodales. Luctus est sem faucibus accumsan nostrud. Urna ad feugiat qui himenaeos. Gravida euismod nostrud.</p>
-                                </div>
-                            </div></div>
-              <div class="col-xs-6 col-md-4">                            <div class="aboutus">
-                                <img src="images/iljaphoto.jpg" width=80% height=80% alt="lorem">
-                                <div class="feature-content">
-                                    <h4>Ilja Magdenko</h4>
-                                    <p>Urna maecenas primis sunt sodales. Luctus est sem faucibus accumsan nostrud. Urna ad feugiat qui himenaeos. Gravida euismod nostrud.</p>
-                                </div>
-                            </div></div>
-          </div>
-          <div class="row">
-              <div class="col-xs-6">                            <div class="aboutus">
-                                <img src="images/iljaphoto.jpg" width=50% height=50% alt="lorem">
-                                <div class="feature-content">
-                                    <h4>Ilja Magdenko</h4>
-                                    <p>Urna maecenas primis sunt sodales. Luctus est sem faucibus accumsan nostrud. Urna ad feugiat qui himenaeos. Gravida euismod nostrud.</p>
-                                </div>
-                            </div></div>
-              <div class="col-xs-6">                            <div class="aboutus">
-                                <img src="images/iljaphoto.jpg" width=50% height=50% alt="lorem">
-                                <div class="feature-content">
-                                    <h4>Ilja Magdenko</h4>
-                                    <p>Urna maecenas primis sunt sodales. Luctus est sem faucibus accumsan nostrud. Urna ad feugiat qui himenaeos. Gravida euismod nostrud.</p>
-                                </div>
-                            </div></div>
-          </div>
-      </div>
-
-  </div>
-</div>
-<!-- About Us -->
-
-<!-- Random -->
-<div class="section-modal modal fade" id="random-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
+              <h4>Ilja Magdenko</h4>
             </div>
-        </div>
-
-        <div class="container">
-          6
+          </div></div>
+        </center></div>
       </div>
 
+    </div>
   </div>
-</div>
-<!-- Random -->
+  <!-- About Us -->
+
+  <!-- Random -->
+  <div class="section-modal modal fade" id="random-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+          <div class="rl">
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        There will be random modal.
+      </div>
+
+    </div>
+  </div>
+  <!-- Random -->
 
 </body>
 
