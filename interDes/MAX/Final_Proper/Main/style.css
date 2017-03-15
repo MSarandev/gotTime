@@ -167,13 +167,13 @@ MAIN STRUCTURE START
 /* ~TOP~ */
 
 @keyframes expandTop{
-    from{margin-bottom: 0px; width: 200px; height: 200px; z-index: 0;}
+    from{margin-bottom: 0; width: 200px; height: 200px; z-index: 0;}
     to{margin-bottom: 50px; width: 250px; height: 250px; z-index: 5;}
 }
 
 @keyframes shrinkTop {
     from{margin-bottom: 50px; width: 250px; height: 250px; z-index: 5;}
-    to{margin-bottom: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-bottom: 0; width: 200px; height: 200px; z-index: 0;}
 }
 
 #watch_btn:hover{
@@ -187,13 +187,13 @@ MAIN STRUCTURE START
 /* ~BTM~ */
 
 @keyframes expandBtm{
-    from{margin-top: 0px; width: 200px; height: 200px; z-index: 0;}
+    from{margin-top: 0; width: 200px; height: 200px; z-index: 0;}
     to{margin-top: 50px; width: 250px; height: 250px; z-index: 5;}
 }
 
 @keyframes shrinkBtm {
     from{margin-top: 50px; width: 250px; height: 250px; z-index: 5;}
-    to{margin-top: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-top: 0; width: 200px; height: 200px; z-index: 0;}
 }
 
 #surprise_me_btn:hover{
@@ -207,13 +207,13 @@ MAIN STRUCTURE START
 /* ~LFT~ */
 
 @keyframes expandLft{
-    from{margin-left: 0px; width: 200px; height: 200px; z-index: 0;}
+    from{margin-left: 0; width: 200px; height: 200px; z-index: 0;}
     to{margin-left: -50px; width: 250px; height: 250px; z-index: 5;}
 }
 
 @keyframes shrinkLft {
     from{margin-left: -50px; width: 250px; height: 250px; z-index: 5;}
-    to{margin-left: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-left: 0; width: 200px; height: 200px; z-index: 0;}
 }
 
 #listen_btn:hover{
@@ -227,13 +227,13 @@ MAIN STRUCTURE START
 /* ~RGT~ */
 
 @keyframes expandRgt{
-    from{margin-right: 0px; width: 200px; height: 200px; z-index: 0;}
+    from{margin-right: 0; width: 200px; height: 200px; z-index: 0;}
     to{margin-right: -50px; width: 250px; height: 250px; z-index: 5;}
 }
 
 @keyframes shrinkRgt {
     from{margin-right: -50px; width: 250px; height: 250px; z-index: 5;}
-    to{margin-right: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-right: 0; width: 200px; height: 200px; z-index: 0;}
 }
 
 #read_btn:hover{
