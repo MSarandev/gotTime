@@ -43,28 +43,73 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    <div class="menu-item blue">
-                        <a href="#films-modal" data-toggle="modal" class="js-button">
-                        <div class="js-container hidden">
-Some text here.
-</div>
-
-                            <i class="glyphicon glyphicon-facetime-video"></i>
-                            <p>Films</p>
+                    <div class="menu-item blue" onclick="clickMeFilms()">
+                        <a href="#" data-toggle="modal" id="ModalFilmsGanres">
+                            <i id="FilmGanreIcon" class="glyphicon glyphicon-facetime-video"></i>
+                            <p id="filmsID">Films</p>
                         </a>
                     </div>
 
-                    <div class="menu-item green">
-                        <a href="#music-modal" data-toggle="modal">
-                            <i class="fa fa-music"></i>
-                            <p>Music</p>
+                    <div class="menu-item green" onclick="clickMeMusic()">
+                        <a href="#" data-toggle="modal" id="ModalMusicGanres">
+                            <i id="MusicGanreIcon" class="fa fa-music"></i>
+                            <p id="musicID" >Music</p>
                         </a>
                     </div>
+
+                    <script>
+                    var count = 0;
+
+                    function clickMeFilms(){
+
+                      if(count == 0){
+                          count = 1;
+                          document.getElementById("musicID").innerHTML = "Romantic";
+                          document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-heart-empty";
+                          document.getElementById("FilmGanreIcon").className = "glyphicon glyphicon-map-marker";
+                          document.getElementById("filmsID").innerHTML = "War films";
+                           document.getElementById("AboutusGanreIcon").className = "glyphicon glyphicon-record";
+                          document.getElementById("aboutusID").innerHTML = "Thriller";
+                          document.getElementById("BooksGanreIcon").className = "glyphicon glyphicon-fire";
+                          document.getElementById("booksID").innerHTML = "Horror";
+                          document.getElementById("VideoGanreIcon").className = "glyphicon glyphicon-film";
+                          document.getElementById("videoID").innerHTML = "Western";
+                          document.getElementById("RandomGanreIcon").className = "fa fa-xing-square";
+                          document.getElementById("randomID").innerHTML = "Animation";
+                      }else{
+                          document.getElementById("ModalFilmsGanres").setAttribute("href", "#films-modal");
+                      }
+                    }
+
+                      var count = 0;
+
+                      function clickMeMusic(){
+
+                      if(count == 0){
+                          count = 1;
+                          document.getElementById("musicID").innerHTML = "Jazz";
+                          document.getElementById("MusicGanreIcon").className = "glyphicon glyphicon-sound-7-1";
+                          document.getElementById("FilmGanreIcon").className = "fa fa-fire";
+                          document.getElementById("filmsID").innerHTML = "Rock";
+                           document.getElementById("AboutusGanreIcon").className = "glyphicon glyphicon-stats";
+                          document.getElementById("aboutusID").innerHTML = "Techno";
+                          document.getElementById("BooksGanreIcon").className = "glyphicon glyphicon-music";
+                          document.getElementById("booksID").innerHTML = "Classical period";
+                          document.getElementById("VideoGanreIcon").className = "fa fa-microphone";
+                          document.getElementById("videoID").innerHTML = "Opera";
+                          document.getElementById("RandomGanreIcon").className = "fa fa-money";
+                          document.getElementById("randomID").innerHTML = "Trap music";
+                      }else{
+                          document.getElementById("ModalMusicGanres").setAttribute("href", "#music-modal");
+                      }
+                    }
+                    </script>
+
 
                     <div class="menu-item light-red">
                         <a href="#aboutus-modal" data-toggle="modal">
-                            <i class="fa fa-user"></i>
-                            <p>About Us</p>
+                            <i id="AboutusGanreIcon" class="fa fa-user"></i>
+                            <p id="aboutusID">About Us</p>
                         </a>
                     </div>
 
@@ -75,22 +120,22 @@ Some text here.
 
                     <div class="menu-item brown">
                         <a href="#books-modal" data-toggle="modal">
-                            <i class="fa fa-book"></i>
-                            <p>Book's</p>
+                            <i id="BooksGanreIcon" class="fa fa-book"></i>
+                            <p id="booksID">Book's</p>
                         </a>
                     </div>
 
                     <div class="menu-item red">
                         <a href="#video-modal" data-toggle="modal">
-                            <i class="glyphicon glyphicon-hd-video"></i>
-                            <p>Video</p>
+                            <i id="VideoGanreIcon" class="glyphicon glyphicon-hd-video"></i>
+                            <p id="videoID">Video</p>
                         </a>
                     </div>
 
                     <div class="menu-item blue">
                         <a href="#random-modal" data-toggle="modal">
-                            <i class="fa fa-random"></i>
-                            <p>Random!</p>
+                            <i id="RandomGanreIcon" class="fa fa-random"></i>
+                            <p id="randomID">Random!</p>
                         </a>
                     </div>
 
