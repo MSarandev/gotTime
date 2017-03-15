@@ -10,6 +10,8 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+
+
 a,
 a:hover,
 a:focus,
@@ -42,6 +44,9 @@ p {
     line-height: 21px;
 }
 
+.hidden {
+  display: none;
+}
 
 .btn-primary {
     border-color: #FF432E;
