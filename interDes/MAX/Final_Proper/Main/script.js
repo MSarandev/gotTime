@@ -20,8 +20,18 @@ function displMusic(){
 
         // update the control
         selector = 1;
-    }else{
+    }else if(selector == 1){
+        // ~~ Load the secondary options
+
         fetchMusic();
+
+        // update the control
+        selector += 1;
+    }else{
+        // ~~ Load the content
+        var el = document.getElementById("listen_btn");
+
+        el.innerHTML = '<p>Hello There</p>';
     }
 }
 
@@ -39,8 +49,15 @@ function displMovie(){
 
         // update the control
         selector = 1;
-    }else{
+    }else if(selector == 1){
+        // ~~ Load the secondary options
+
         fetchMovie();
+
+        // update the control
+        selector += 1;
+    }else{
+        // ~~ Load the content
     }
 }
 
@@ -58,8 +75,15 @@ function displBooks(){
 
         // update the control
         selector = 1;
-    }else{
+    }else if(selector == 1){
+        // ~~ Load the secondary options
+
         fetchBooks();
+
+        // update the control
+        selector += 1;
+    }else{
+        // ~~ Load the content
     }
 }
 
