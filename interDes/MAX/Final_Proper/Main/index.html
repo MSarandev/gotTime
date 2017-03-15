@@ -7,8 +7,8 @@
           type="image/png"
           href="icons/favicon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="script.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <!--
@@ -21,7 +21,7 @@ TO DO:
 
 -->
 
-<body>
+<body onload="loadMe()">
     <div id="top">
         <img id="logo" src="img/Logo.png"/>
     </div>
@@ -29,12 +29,10 @@ TO DO:
         <div id="sidebar_1">
 
         </div>
+        <!-- () () ()  -->
         <div id="main_main">
-            <h2>GotTime and nothing to do?</h2>
-            <h3>Pick a category and we will present you with content to enjoy</h3>
-
             <div id="sub_top_cont">
-                <div class="BUTTON" id="watch_btn">
+                <div class="BUTTON" id="watch_btn" onclick="displMovie()">
                     <img class="MENU_IMG" id="menu_img_top" src="menu/main/watch.png"/>
                 </div>
             </div>
@@ -46,7 +44,7 @@ TO DO:
                     </div>
                 </div>
                 <div id="sub_mid_right">
-                    <div class="BUTTON" id="read_btn">
+                    <div class="BUTTON" id="read_btn" onclick="displBooks()">
                         <img class="MENU_IMG" id="menu_img_right" src="menu/main/read.png"/>
                     </div>
                 </div>
@@ -58,6 +56,8 @@ TO DO:
                 </div>
             </div>
         </div>
+
+        <!-- () () () -->
         <div id="sidebar_2">
 
         </div>

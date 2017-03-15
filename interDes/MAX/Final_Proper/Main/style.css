@@ -177,11 +177,11 @@ MAIN STRUCTURE START
 }
 
 #watch_btn:hover{
-    animation: expandTop 500ms forwards;
+    animation: expandTop 550ms forwards;
 }
 
 #watch_btn{
-    animation: shrinkTop 500ms forwards;
+    animation: shrinkTop 400ms forwards;
 }
 
 /* ~BTM~ */
@@ -197,11 +197,11 @@ MAIN STRUCTURE START
 }
 
 #surprise_me_btn:hover{
-    animation: expandBtm 500ms forwards;
+    animation: expandBtm 550ms forwards;
 }
 
 #surprise_me_btn{
-    animation: shrinkBtm 500ms forwards;
+    animation: shrinkBtm 400ms forwards;
 }
 
 /* ~LFT~ */
@@ -217,11 +217,11 @@ MAIN STRUCTURE START
 }
 
 #listen_btn:hover{
-    animation: expandLft 500ms forwards;
+    animation: expandLft 550ms forwards;
 }
 
 #listen_btn{
-    animation: shrinkLft 500ms forwards;
+    animation: shrinkLft 400ms forwards;
 }
 
 /* ~RGT~ */
@@ -237,11 +237,11 @@ MAIN STRUCTURE START
 }
 
 #read_btn:hover{
-    animation: expandRgt 500ms forwards;
+    animation: expandRgt 550ms forwards;
 }
 
 #read_btn{
-    animation: shrinkRgt 500ms forwards;
+    animation: shrinkRgt 400ms forwards;
 }
 
 /* ANIMATIONS END -- */
