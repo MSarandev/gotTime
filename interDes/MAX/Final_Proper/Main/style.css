@@ -1,0 +1,261 @@
+@import 'https://fonts.googleapis.com/css?family=Philosopher';
+
+body, html{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    font-family: Philosopher, "Calibri Light", Arial, serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    background-color: #000;
+    color: #FFFFF7;
+}
+
+#top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-radial-gradient(circle, #000, #565656, #f6efe2 50%, #fff);
+    color: #2c3e50;
+    height: 5em;
+    z-index: 0;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("img/bck_wood-min.jpg");
+    background-size: cover;
+    height: inherit;
+}
+
+#btm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(246, 239, 226);
+    color: #000;
+    height: 3em;
+    z-index: 0;
+}
+
+/* MAIN CONTAINER BELOW */
+
+#sidebar_1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    width: 30%;
+}
+
+#sidebar_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    width: 30%;
+}
+
+#main_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0, 0.2);
+    width: 40%;
+    height: 100%;
+    min-width: 40%;
+}
+
+h3, h2{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    color: #FFFFF7;
+    text-align: center;
+}
+
+h3{
+    margin-bottom: 50px;
+}
+
+#logo{
+    height: 4em;
+}
+
+/*
+MAIN STRUCTURE START
+ */
+
+#sub_top_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+#sub_mid_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+}
+
+/* +1 level */
+#sub_mid_left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+#sub_mid_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+/* -- */
+
+#sub_btm_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.MENU_IMG{
+    width: inherit;
+    height: inherit;
+}
+
+/* ()()() */
+/* position the top & btm */
+#sub_top_cont{
+    margin-bottom: -100px;
+}
+
+#sub_btm_cont{
+    margin-top: -100px;
+}
+/* ()()() */
+
+/* ANIMATIONS START */
+/* () () */
+/* ~TOP~ */
+
+@keyframes expandTop{
+    from{margin-bottom: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-bottom: 50px; width: 250px; height: 250px; z-index: 5;}
+}
+
+@keyframes shrinkTop {
+    from{margin-bottom: 50px; width: 250px; height: 250px; z-index: 5;}
+    to{margin-bottom: 0px; width: 200px; height: 200px; z-index: 0;}
+}
+
+#watch_btn:hover{
+    animation: expandTop 500ms forwards;
+}
+
+#watch_btn{
+    animation: shrinkTop 500ms forwards;
+}
+
+/* ~BTM~ */
+
+@keyframes expandBtm{
+    from{margin-top: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-top: 50px; width: 250px; height: 250px; z-index: 5;}
+}
+
+@keyframes shrinkBtm {
+    from{margin-top: 50px; width: 250px; height: 250px; z-index: 5;}
+    to{margin-top: 0px; width: 200px; height: 200px; z-index: 0;}
+}
+
+#surprise_me_btn:hover{
+    animation: expandBtm 500ms forwards;
+}
+
+#surprise_me_btn{
+    animation: shrinkBtm 500ms forwards;
+}
+
+/* ~LFT~ */
+
+@keyframes expandLft{
+    from{margin-left: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-left: -50px; width: 250px; height: 250px; z-index: 5;}
+}
+
+@keyframes shrinkLft {
+    from{margin-left: -50px; width: 250px; height: 250px; z-index: 5;}
+    to{margin-left: 0px; width: 200px; height: 200px; z-index: 0;}
+}
+
+#listen_btn:hover{
+    animation: expandLft 500ms forwards;
+}
+
+#listen_btn{
+    animation: shrinkLft 500ms forwards;
+}
+
+/* ~RGT~ */
+
+@keyframes expandRgt{
+    from{margin-right: 0px; width: 200px; height: 200px; z-index: 0;}
+    to{margin-right: -50px; width: 250px; height: 250px; z-index: 5;}
+}
+
+@keyframes shrinkRgt {
+    from{margin-right: -50px; width: 250px; height: 250px; z-index: 5;}
+    to{margin-right: 0px; width: 200px; height: 200px; z-index: 0;}
+}
+
+#read_btn:hover{
+    animation: expandRgt 500ms forwards;
+}
+
+#read_btn{
+    animation: shrinkRgt 500ms forwards;
+}
+
+/* ANIMATIONS END -- */
+
+/*
+MAIN STRUCTURE END
+ */
+
+/* BUTTON STYLING BELOW */
+
+.BUTTON{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
