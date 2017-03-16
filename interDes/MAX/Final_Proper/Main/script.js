@@ -15,6 +15,7 @@ function displMusic(){
     // add the new elements
     el_top.innerHTML = new_top;
     el_lft.innerHTML = new_lft;
+
     el_rgt.innerHTML = new_rgt;
 }
 
