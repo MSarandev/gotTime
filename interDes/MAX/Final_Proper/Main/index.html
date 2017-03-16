@@ -16,12 +16,10 @@
 TO DO:
 1. Change functions (onclick)
 2. Add final step elements
-3. Create 2 iframes in Azure
-4. Link both designs
 
 -->
 
-<body onload="loadMe()">
+<body>
     <div id="top">
         <img id="logo" src="img/Logo.png"/>
     </div>
@@ -32,20 +30,20 @@ TO DO:
         <!-- () () ()  -->
         <div id="main_main">
             <div id="sub_top_cont">
-                <div class="BUTTON" id="watch_btn" onclick="displMovie()">
-                    <img class="MENU_IMG" id="menu_img_top" src="menu/main/watch.png"/>
+                <div class="BUTTON" id="watch_btn">
+                    <img class="MENU_IMG" id="menu_img_top" onclick="displMovie()" src="menu/main/watch.png"/>
                 </div>
             </div>
 
             <div id="sub_mid_cont">
                 <div id="sub_mid_left">
-                    <div class="BUTTON" id="listen_btn" onclick="displMusic()">
-                        <img class="MENU_IMG" id="menu_img_left" src="menu/main/listen.png"/>
+                    <div class="BUTTON" id="listen_btn">
+                        <img class="MENU_IMG" id="menu_img_left" onclick="displMusic()" src="menu/main/listen.png"/>
                     </div>
                 </div>
                 <div id="sub_mid_right">
-                    <div class="BUTTON" id="read_btn" onclick="displBooks()">
-                        <img class="MENU_IMG" id="menu_img_right" src="menu/main/read.png"/>
+                    <div class="BUTTON" id="read_btn">
+                        <img class="MENU_IMG" id="menu_img_right" onclick="displBooks()" src="menu/main/read.png"/>
                     </div>
                 </div>
             </div>
