@@ -1,128 +1,160 @@
 // functions to change the text of the buttons
 
-var selector = 0;  // used to control what callback to attach
-
-function loadMe(){
-    selector = 0;  // reset the var
-}
-
 function displMusic(){
-    if(selector == 0) {
-        // fetch the elements
-        var element_top = document.getElementById("menu_img_top");
-        var element_lft = document.getElementById("menu_img_left");
-        var element_rgt = document.getElementById("menu_img_right");
+    // Get the elements
+    var el_top = document.getElementById("watch_btn");
+    var el_lft = document.getElementById("listen_btn");
+    var el_rgt = document.getElementById("read_btn");
 
-        // change the img
-        element_top.src = "menu/MUSIC/house.png";
-        element_lft.src = "menu/MUSIC/pop.png";
-        element_rgt.src = "menu/MUSIC/rock.png";
 
-        // update the control
-        selector = 1;
-    }else if(selector == 1){
-        // ~~ Load the secondary options
+    // declare the new content
+    var new_top = '<img class="MENU_IMG" id="sec_img_top" onclick="musicGenre(1)" src="menu/MUSIC/house.png"/>';
+    var new_lft = '<img class="MENU_IMG" id="sec_img_lft" onclick="musicGenre(2)" src="menu/MUSIC/rock.png"/>';
+    var new_rgt = '<img class="MENU_IMG" id="sec_img_rgt" onclick="musicGenre(3)" src="menu/MUSIC/pop.png"/>';
 
-        fetchMusic();
-
-        // update the control
-        selector += 1;
-    }else{
-        // ~~ Load the content
-        var el = document.getElementById("listen_btn");
-
-        el.innerHTML = '<p>Hello There</p>';
-    }
+    // add the new elements
+    el_top.innerHTML = new_top;
+    el_lft.innerHTML = new_lft;
+    el_rgt.innerHTML = new_rgt;
 }
 
 function displMovie(){
-    if(selector == 0){
-        // fetch the elements
-        var element_top = document.getElementById("menu_img_top");
-        var element_lft = document.getElementById("menu_img_left");
-        var element_rgt = document.getElementById("menu_img_right");
+    // Get the elements
+    var el_top = document.getElementById("watch_btn");
+    var el_lft = document.getElementById("listen_btn");
+    var el_rgt = document.getElementById("read_btn");
 
-        // change the img
-        element_top.src = "menu/MOVIES/comedy.png";
-        element_lft.src = "menu/MOVIES/horror.png";
-        element_rgt.src = "menu/MOVIES/sci-fi.png";
 
-        // update the control
-        selector = 1;
-    }else if(selector == 1){
-        // ~~ Load the secondary options
+    // declare the new content
+    var new_top = '<img class="MENU_IMG" id="sec_img_top" onclick="moviesGenre(1)" src="menu/MOVIES/comedy.png"/>';
+    var new_lft = '<img class="MENU_IMG" id="sec_img_lft" onclick="moviesGenre(2)" src="menu/MOVIES/horror.png"/>';
+    var new_rgt = '<img class="MENU_IMG" id="sec_img_rgt" onclick="moviesGenre(3)" src="menu/MOVIES/sci-fi.png"/>';
 
-        fetchMovie();
-
-        // update the control
-        selector += 1;
-    }else{
-        // ~~ Load the content
-    }
+    // add the new elements
+    el_top.innerHTML = new_top;
+    el_lft.innerHTML = new_lft;
+    el_rgt.innerHTML = new_rgt;
 }
 
 function displBooks(){
-    if(selector == 0){
-        // fetch the elements
-        var element_top = document.getElementById("menu_img_top");
-        var element_lft = document.getElementById("menu_img_left");
-        var element_rgt = document.getElementById("menu_img_right");
+    // Get the elements
+    var el_top = document.getElementById("watch_btn");
+    var el_lft = document.getElementById("listen_btn");
+    var el_rgt = document.getElementById("read_btn");
 
-        // change the img
-        element_top.src = "menu/BOOKS/drama.png";
-        element_lft.src = "menu/BOOKS/fantasy.png";
-        element_rgt.src = "menu/BOOKS/poetry.png";
 
-        // update the control
-        selector = 1;
-    }else if(selector == 1){
-        // ~~ Load the secondary options
+    // declare the new content
+    var new_top = '<img class="MENU_IMG" id="sec_img_top" onclick="booksGenre(1)" src="menu/BOOKS/drama.png"/>';
+    var new_lft = '<img class="MENU_IMG" id="sec_img_lft" onclick="booksGenre(2)" src="menu/BOOKS/fantasy.png"/>';
+    var new_rgt = '<img class="MENU_IMG" id="sec_img_rgt" onclick="booksGenre(3)" src="menu/BOOKS/poetry.png"/>';
 
-        fetchBooks();
+    // add the new elements
+    el_top.innerHTML = new_top;
+    el_lft.innerHTML = new_lft;
+    el_rgt.innerHTML = new_rgt;
+}
 
-        // update the control
-        selector += 1;
-    }else{
-        // ~~ Load the content
+// Music function (2nd step)
+function musicGenre(x){
+    if(x == 1){
+        // callback from top
+        // ~~~ ~~~ ~~~
+        // Load content for the top genre
+        loadPlayback();
+    }else if(x == 2){
+        // callback from left
+        // ~~~ ~~~ ~~~
+        // Load content for the left genre
+        loadPlayback();
+    }else if(x == 3){
+        // callback from right
+        // ~~~ ~~~ ~~~
+        // Load content for the right genre
+        loadPlayback();
     }
 }
 
-// ~~~ ~~~ ~~~ ~~~ ~~~
-
-// functions to display the content
-
-function fetchMusic(){
-    // fetch the elements
-    var element_top = document.getElementById("menu_img_top");
-    var element_lft = document.getElementById("menu_img_left");
-    var element_rgt = document.getElementById("menu_img_right");
-
-    // change the img
-    element_top.src = "menu/main/empty.png";
-    element_lft.src = "menu/main/empty.png";
-    element_rgt.src = "menu/main/empty.png";
+// Movies function (2nd step)
+function moviesGenre(x){
+    if(x == 1){
+        // callback from top
+        // ~~~ ~~~ ~~~
+        // Load content for the top genre
+        loadPlayback();
+    }else if(x == 2){
+        // callback from left
+        // ~~~ ~~~ ~~~
+        // Load content for the left genre
+        loadPlayback();
+    }else if(x == 3){
+        // callback from right
+        // ~~~ ~~~ ~~~
+        // Load content for the right genre
+        loadPlayback();
+    }
 }
 
-function fetchMovie(){
-    // fetch the elements
-    var element_top = document.getElementById("menu_img_top");
-    var element_lft = document.getElementById("menu_img_left");
-    var element_rgt = document.getElementById("menu_img_right");
-
-    // change the img
-    element_top.src = "menu/main/empty.png";
-    element_lft.src = "menu/main/empty.png";
-    element_rgt.src = "menu/main/empty.png";
+// Books function (2nd step)
+function booksGenre(x){
+    if(x == 1){
+        // callback from top
+        // ~~~ ~~~ ~~~
+        // Load content for the top genre
+        loadRead();
+    }else if(x == 2){
+        // callback from left
+        // ~~~ ~~~ ~~~
+        // Load content for the left genre
+        loadRead();
+    }else if(x == 3){
+        // callback from right
+        // ~~~ ~~~ ~~~
+        // Load content for the right genre
+        loadRead();
+    }
 }
 
-function fetchBooks(){
-    // fetch the elements
-    var element_top = document.getElementById("menu_img_top");
-    var element_lft = document.getElementById("menu_img_left");
-    var element_rgt = document.getElementById("menu_img_right");
+/*
+The function below will be changed !!!
+ */
 
-    // change the img
-    element_top.src = "menu/main/empty.png";
-    element_lft.src = "menu/main/empty.png";
-    element_rgt.src = "menu/main/empty.png";
+// ~~~ Load "content"
+function loadPlayback(){
+    // Get the elements
+    var el_top = document.getElementById("watch_btn");
+    var el_lft = document.getElementById("listen_btn");
+    var el_rgt = document.getElementById("read_btn");
+
+
+    // declare the new content
+    var new_top = '<img class="MENU_IMG" id="thr_img_top" onclick="booksGenre(1)" src="menu/main/content_play.png"/>';
+    var new_lft = '<img class="MENU_IMG" id="thr_img_lft" onclick="booksGenre(2)" src="menu/main/content_play.png"/>';
+    var new_rgt = '<img class="MENU_IMG" id="thr_img_rgt" onclick="booksGenre(3)" src="menu/main/content_play.png"/>';
+
+    // add the new elements
+    el_top.innerHTML = new_top;
+    el_lft.innerHTML = new_lft;
+    el_rgt.innerHTML = new_rgt;
 }
+function loadRead(){
+    // Get the elements
+    var el_top = document.getElementById("watch_btn");
+    var el_lft = document.getElementById("listen_btn");
+    var el_rgt = document.getElementById("read_btn");
+
+
+    // declare the new content
+    var new_top = '<img class="MENU_IMG" id="thr_img_top" onclick="booksGenre(1)" src="menu/main/content_read.png"/>';
+    var new_lft = '<img class="MENU_IMG" id="thr_img_lft" onclick="booksGenre(2)" src="menu/main/content_read.png"/>';
+    var new_rgt = '<img class="MENU_IMG" id="thr_img_rgt" onclick="booksGenre(3)" src="menu/main/content_read.png"/>';
+
+    // add the new elements
+    el_top.innerHTML = new_top;
+    el_lft.innerHTML = new_lft;
+    el_rgt.innerHTML = new_rgt;
+}
+// ~~~
+
+// ~~~ GENERATE THE EXAMPLE CONTENT
+
+// ~~~
