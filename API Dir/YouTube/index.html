@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YOUTUBE API</title>
+
+    <!-- YouTube specific js below -->
+    <script src="auth.js"></script>
+    <!-- jQuery import -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady">  </script>
+</head>
+<body onload="keyWordsearch()"> <!-- Added onload for debugging -->
+
+<div id="container_top">
+    <div id="container">
+        <div id="results">
+
+        </div>
+    </div>
+    <script>
+        var genre = "samsung galaxy s8"; // Set the genre that we'll search for
+
+        function keyWordsearch(){
+            gapi.client.setApiKey('AIzaSyCSceFCV5K0_4O6Rn52sm-ywlvH1UXLBGw'); // assign the API key
+            gapi.client.load('youtube', 'v3', function() { // Youtube authentication
+                makeRequest(); // More youtube authentication
+            });
+        }
+
+        function makeRequest() {
+            // define the request
+            var q = genre; // give the query a keyword
+            var request = gapi.client.youtube.search.list({ // youtube request code
+                q: q, // keyword
+                part: 'snippet', // specify what to return
+                maxResults: 2, // results limit
+            });
+
+            // execute the request
+            request.execute(function(response)  {
+                $('#results').empty() // clears the container
+                var srchItems = response.result.items; // defines the return type
+
+                $.each(srchItems, function(index, item) { // for each loop until the max return item val
+                    vidTitle = item.snippet.title; // fetch the title
+
+                    // fetch the URL and prepare for embedding
+                    var urlString = "https://www.youtube.com/embed/" + item.id.videoId;
+
+                    // create new container for each video
+                    $('#results').append('<span>'+
+                        vidTitle+
+                        '</br>' +
+                            // define the iframe and plug src
+                        '<iframe src="'+urlString+'" width="800px" height="600px"></iframe>' +
+                        '</span>' + '</br></br>');
+                })
+            })
+        }
+    </script>
+</div>
+</body>
+</html>
