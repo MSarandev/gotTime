@@ -172,6 +172,35 @@
                 }while (books_genres.length < 5);
             }
 
+            // Videos genre generation
+
+            function loadVideosGenre(){
+                var storage_genres = ["Animation","Documentary","Cars","Music","Animals","Sports","Travel",
+                    "News","Gaming","Vlog","Podcast","Comedy","Politics","Style",
+                    "DIY","Education","Science","Technology"];
+
+                var rand_num = Math.floor(Math.random() * storage_genres.length) + 0; // get a random number
+
+                do{
+                    // pushing first genre
+                    if(videos_genres.length == 0){
+                        videos_genres.push(storage_genres[rand_num]);
+                    }else{
+                        // fetch new rand.
+                        rand_num = Math.floor(Math.random() * storage_genres.length) + 0;
+
+                        // check if genre is in the array
+                        if(videos_genres.indexOf(storage_genres[rand_num]) == -1){
+                            // not in array, push
+                            videos_genres.push(storage_genres[rand_num]);
+                        }else{
+                            // genre present, fetch new one
+                        }
+                    }
+                }while (videos_genres.length < 5);
+            }
+
+
 
             // Generate film genres
             // <> <> <> <> <> <> <>

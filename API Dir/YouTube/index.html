@@ -14,12 +14,45 @@
 
 <div id="container_top">
     <div id="container">
+        <p id="tech">This</p>
         <div id="results">
 
         </div>
     </div>
     <script>
-        var genre = "samsung galaxy s8"; // Set the genre that we'll search for
+        var videos_genres=[];
+
+        function loadVideosGenre(){
+            var storage_genres = ["Animation","Documentary","Cars","Music","Animals","Sports","Travel",
+                "News","Gaming","Vlog","Podcast","Comedy","Politics","Style",
+                "DIY","Education","Science","Technology"];
+
+            var rand_num = Math.floor(Math.random() * storage_genres.length) + 0; // get a random number
+
+            do{
+                // pushing first genre
+                if(videos_genres.length == 0){
+                    videos_genres.push(storage_genres[rand_num]);
+                }else{
+                    // fetch new rand.
+                    rand_num = Math.floor(Math.random() * storage_genres.length) + 0;
+
+                    // check if genre is in the array
+                    if(videos_genres.indexOf(storage_genres[rand_num]) == -1){
+                        // not in array, push
+                        videos_genres.push(storage_genres[rand_num]);
+                    }else{
+                        // genre present, fetch new one
+                    }
+                }
+            }while (videos_genres.length < 5);
+        }
+
+        loadVideosGenre();
+
+        var genre = videos_genres[0]; // Set the genre that we'll search for
+
+        document.getElementById("tech").innerHTML = "Generated genres: " + videos_genres.toString();
 
         function keyWordsearch(){
             gapi.client.setApiKey('AIzaSyCSceFCV5K0_4O6Rn52sm-ywlvH1UXLBGw'); // assign the API key
