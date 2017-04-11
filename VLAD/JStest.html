@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JS Button test</title>
+	<meta name="description" content="test">
+	<meta name="author" content="Vladimir R.">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/musicScripts.js"></script>
+</head>
+
+<body onload="pickMusicGenres(3);setButtons()">
+
+<div class="container" id="main">
+<h3>Choose music genre:</h3>
+<p id="test1"></p>
+<button type="button" id="b1" onclick=outputGenre(selectedMusicGenres[0])>b1</button>
+<button type="button" id="b2" onclick=outputGenre(selectedMusicGenres[1])>b2</button>
+<button type="button" id="b3" onclick=outputGenre(selectedMusicGenres[2])>b3</button>
+<button type="button" id="b4" onclick=playDatSong2()>PLAY DAT SONG!</button>
+</div>
+<div class="container" id="result">
+</div>
+</body>
+</html>

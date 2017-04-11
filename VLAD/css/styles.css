@@ -1,0 +1,36 @@
+@media all and (min-width: 900px) {
+    body {
+        background-color: white;
+    }
+	
+	ul li {
+	display:inline;
+}
+}
+body {
+	background-color: grey;
+	text-align: center;	
+}
+
+
+
+ul li a {
+	text-decoration:none; padding: .8em .8em; color: black; background-color:gold;
+}
+
+ul li a:hover {
+	color:black; background-color:darkOrange;
+}
+
+.container {
+	background-color: orange;
+	text-align: center;
+	width: 60%;
+
+	margin: 0 auto;
+}
+
+footer {
+	background-color: grey;
+	text-align: center;
+}
