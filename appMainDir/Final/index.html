@@ -1174,10 +1174,10 @@ function bookSearch(){
                 var search = document.getElementById('search').value
                 document.getElementById('result').innerHTML = ""
                 console.log(search)
-                var randomz = Math.floor((Math.random() * 1000) + 1);
+                var randomz = Math.floor((Math.random() * 100) + 1);
 
                 $.ajax({
-                    url: "https://www.googleapis.com/books/v1/volumes?q=startIndex:" + randomz + "&subject:" + search ,
+                    url: "https://www.googleapis.com/books/v1/volumes?q=subject:" + search + "&startIndex=" + randomz + "&language:en",
                     dataType: "json",
 
                     success: function(data) {
@@ -1204,7 +1204,7 @@ function bookSearch(){
                             result.innerHTML += "</table>"
                             result.innerHTML += "</div>"
                             result.innerHTML += "</br>"
-                            result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + "><center><button type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+                            result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
                             result.innerHTML += "</br>"
                             result.innerHTML += "</div>"
                             result.innerHTML += "</br>"
