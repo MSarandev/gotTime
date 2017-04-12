@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="scripts/musicScripts.js"></script>
 </head>
 
-<body onload="pickMusicGenres(3);setButtons()">
+<body onload="pickMusicGenres(3);setButtons();konamiCode()">
 
 <div class="container" id="main">
 <h3>Choose music genre:</h3>
@@ -18,7 +18,7 @@
 <button type="button" id="b1" onclick=outputGenre(selectedMusicGenres[0])>b1</button>
 <button type="button" id="b2" onclick=outputGenre(selectedMusicGenres[1])>b2</button>
 <button type="button" id="b3" onclick=outputGenre(selectedMusicGenres[2])>b3</button>
-<button type="button" id="b4" onclick=playDatSong2()>PLAY DAT SONG!</button>
+<button type="button" id="b4" onclick="document.getElementById('result').innerHTML = ''">Clear Section</button>
 </div>
 <div class="container" id="result">
 </div>
