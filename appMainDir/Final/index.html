@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Version 1.0 -->
+<!-- Edited by Vlad on 13/4/2017 -->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Got Time? webapp">
+    <meta name="author" content="CASD7 team">
 
     <title>Got time?</title>
 
@@ -23,1358 +23,247 @@
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+	<script src="js/randomScripts.js"></script>
+	<script src="js/musicScripts.js"></script>
     <!-- <><><> -->
 </head>
 
-<body>
-    <!--
-    Initial Webpage content below
-    -->
+<body onload="konamiCode()">
+    <!-- Initial Webpage content below -->
 
     <!-- Header START-->
-    <section id="logo-section" class="text-center">
+    <header id="logo-section" class="text-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="logo text-center">
                         <!-- "Logo" text below -->
                         <h1>Got time?</h1>
-
                         <!-- Flashing text below -->
                         <div class="area">⚠ Your time eater web-site! ⚠</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
     <!-- Header END -->
 
-
     <!-- Main Body START -->
-    <div class="mainbody-section text-center">
-    <div class="container">
-      <div class="row">
-        <!--
-            Left Column Below
-        -->
-        <div class="col-md-6">
-
-            <!-- Left Col, Btn 1 -->
-          <div class="menu-item blue" id="container_col1_btn1"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#" data-toggle="modal" id="ModalFilmsGanres" onclick="clickMeFilms()">
-                <!-- Btn Icon -->
-              <i id="FilmGanreIcon" class="glyphicon glyphicon-facetime-video"></i>
-                <!-- Btn Label -->
-              <p id="filmsID">Films</p>
-            </a>
-          </div>
-
-            <!-- Left Col, Btn 2 -->
-
-          <div class="menu-item green" id="container_col1_btn2"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#" data-toggle="modal" id="ModalMusicGanres" onclick="clickMeMusic()">
-                <!-- Btn Icon -->
-              <i id="MusicGanreIcon" class="fa fa-music"></i>
-                <!-- Btn Label -->
-              <p id="musicID">Music</p>
-            </a>
-          </div>
-
-          <script>
-            var count = 0; // Used to control function calling
-            var film_genres = []; // Used for dynamic genre generation
-            var music_genres = []; // Used for dynamic genre generation
-            var books_genres = []; // Used for dynamic genre generation
-            var videos_genres = []; // Used for dynamic genre generation
-
-            // Genres generation function below
-            // <><><>
-            // Films genre generation
-
-            function loadFilmGenres(){
-                var storage_genres = ["Action", "Adventure", "Anime", "Art house", "Biopic", "Cartoons", "Comedy",
-                "Crime", "Detective", "Disaster", "Documentary", "Drama", "Family", "Fantasy", "Historical", "Horror",
-                "Musical", "Noir", "Romance", "Sci-Fi", "Sports", "Thriller", "TV shows", "War", "Western"];
-
-                var rand_num = Math.floor(Math.random() * storage_genres.length) + 0; // get a random number
-
-                do{
-                    // pushing first genre
-                    if(film_genres.length == 0){
-                        film_genres.push(storage_genres[rand_num]);
-                    }else{
-                        // fetch new rand.
-                        rand_num = Math.floor(Math.random() * storage_genres.length) + 0;
-
-                        // check if genre is in the array
-                        if(film_genres.indexOf(storage_genres[rand_num]) == -1){
-                            // not in array, push
-                            film_genres.push(storage_genres[rand_num]);
-                        }else{
-                            // genre present, fetch new one
-                        }
-                    }
-                }while (film_genres.length < 5);
-            }
-
-            // Music genre generation
-
-            function loadMusicGenres(){
-                var storage_genres = ["Blues", "Caribbean", "Classical", "Country", "Dance", "Disco", "Easy-listening",
-                "Electronic", "Folk", "Hip-hop", "House", "Jazz", "Latin", "Metal", "Pop", "Reggae", "RnB", "Rock",
-                "Techno", "Trance", "World"];
-
-                var rand_num = Math.floor(Math.random() * storage_genres.length) + 0; // get a random number
-
-                do{
-                    // pushing first genre
-                    if(music_genres.length == 0){
-                        music_genres.push(storage_genres[rand_num]);
-                    }else{
-                        // fetch new rand.
-                        rand_num = Math.floor(Math.random() * storage_genres.length) + 0;
-
-                        // check if genre is in the array
-                        if(music_genres.indexOf(storage_genres[rand_num]) == -1){
-                            // not in array, push
-                            music_genres.push(storage_genres[rand_num]);
-                        }else{
-                            // genre present, fetch new one
-                        }
-                    }
-                }while (music_genres.length < 5);
-            }
-
-            // Books genre generation
-
-            function loadBooksGenre(){
-                var storage_genres = ["Biography", "Comedy", "Drama", "Fantasy", "Horror", "Non-fiction", "Poetry",
-                "Romance novel", "Satire", "Science Fiction", "Thriller", "Tragedy", "Tragicomedy"];
-
-                var rand_num = Math.floor(Math.random() * storage_genres.length) + 0; // get a random number
-
-                do{
-                    // pushing first genre
-                    if(books_genres.length == 0){
-                        books_genres.push(storage_genres[rand_num]);
-                    }else{
-                        // fetch new rand.
-                        rand_num = Math.floor(Math.random() * storage_genres.length) + 0;
-
-                        // check if genre is in the array
-                        if(books_genres.indexOf(storage_genres[rand_num]) == -1){
-                            // not in array, push
-                            books_genres.push(storage_genres[rand_num]);
-                        }else{
-                            // genre present, fetch new one
-                        }
-                    }
-                }while (books_genres.length < 5);
-            }
-
-            // Videos genre generation
-
-            function loadVideosGenre(){
-                var storage_genres = ["Animation","Documentary","Cars","Music","Animals","Sports","Travel",
-                    "News","Gaming","Vlog","Podcast","Comedy","Politics","Style",
-                    "DIY","Education","Science","Technology"];
-
-                var rand_num = Math.floor(Math.random() * storage_genres.length) + 0; // get a random number
-
-                do{
-                    // pushing first genre
-                    if(videos_genres.length == 0){
-                        videos_genres.push(storage_genres[rand_num]);
-                    }else{
-                        // fetch new rand.
-                        rand_num = Math.floor(Math.random() * storage_genres.length) + 0;
-
-                        // check if genre is in the array
-                        if(videos_genres.indexOf(storage_genres[rand_num]) == -1){
-                            // not in array, push
-                            videos_genres.push(storage_genres[rand_num]);
-                        }else{
-                            // genre present, fetch new one
-                        }
-                    }
-                }while (videos_genres.length < 5);
-            }
-
-
-
-            // Generate film genres
-            // <> <> <> <> <> <> <>
-            // Initial function to load the genres
-
-            // Films Below
-            function clickMeFilms(){
-                loadFilmGenres(); // get the genres
-
-                if(count === 0){
-                    count = 1; // increment the counter
-
-                    // Fetch all the btn containers
-                    var col1btn1 = document.getElementById("container_col1_btn1"); // Column 1
-                    var col1btn2 = document.getElementById("container_col1_btn2"); // Column 1
-                    var col1btn3 = document.getElementById("container_col1_btn3"); // Column 1
-                    // ...
-                    var col2btn1 = document.getElementById("container_col2_btn1"); // Column 2
-                    var col2btn2 = document.getElementById("container_col2_btn2"); // Column 2
-                    var col2btn3 = document.getElementById("container_col2_btn3"); // Column 2
-
-
-                    // Update the contents of each button container
-                    // This allows us to recreate the buttons + assign new functions
-                    // without having to refresh the page with new HTML
-
-                    // <> <> <>
-
-                    // Update COL 1, BTN 1
-                    // -------------------
-                    col1btn1.innerHTML = ""; // empty the container
-
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (1) to the genre selector modal
-                    col1btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalFilms1" onclick="fetchFilmByGenre(film_genres[0])">' +
-                        '<i id="FilmGanreIcon1" class="glyphicon glyphicon-map-marker"></i>' +
-                        '<p id="war_films">'+film_genres[0]+'</p>' +
-                        '</a>';
-
-
-                    // Update COL 1, BTN 2
-                    // -------------------
-                    col1btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (2) to the genre selector modal
-                    col1btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalFilms2" onclick="fetchFilmByGenre(film_genres[1])">' +
-                        '<i id="FilmGanreIcon2" class="glyphicon glyphicon-heart-empty"></i>' +
-                        '<p id="romantic_films">'+film_genres[1]+'</p>' +
-                        '</a>';
-
-                    // Update COL 1, BTN 3
-                    // -------------------
-
-                    col1btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (3) to the genre selector modal
-                    col1btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalFilms3" onclick="fetchFilmByGenre(film_genres[2])">' +
-                        '<i id="FilmGanreIcon3" class="glyphicon glyphicon-record"></i>' +
-                        '<p id="thriller_films">'+film_genres[2]+'</p>' +
-                        '</a>';
-
-
-                    // ...
-
-                    // Update COL 2, BTN 1
-                    // -------------------
-
-                    col2btn1.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (4) to the genre selector modal
-                    col2btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalFilms4" onclick="fetchFilmByGenre(film_genres[3])">' +
-                        '<i id="FilmGanreIcon4" class="glyphicon glyphicon-fire"></i>' +
-                        '<p id="horror_films">'+film_genres[3]+'</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 2
-                    // -------------------
-
-                    col2btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (5) to the genre selector modal
-                    col2btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalFilms5" onclick="fetchFilmByGenre(film_genres[4])">' +
-                        '<i id="FilmGanreIcon5" class="glyphicon glyphicon-film"></i>' +
-                        '<p id="western_films">'+film_genres[4]+'</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 3
-                    // -------------------
-
-                    col2btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Onclick - Reload the page
-                    col2btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="BackBtnA"' +
-                        '<i id="BackBtnIcon" class="fa fa-xing-square"></i>' +
-                        '<p id="randomID">Back</p>' +
-                        '</a>';
-
-                    // reload on click
-                    document.getElementById("BackBtnA").setAttribute('href', window.location.href);
-                }
-            }
-
-            function fetchFilmByGenre(x){
-                // THIS SHOULD LOAD A DYNAMIC MODAL BASED ON THE GENRE
-
-                // Placeholder below
-                document.getElementById("ModalFilms1").setAttribute("href", "#films-modal");
-                document.getElementById("ModalFilms2").setAttribute("href", "#films-modal");
-                document.getElementById("ModalFilms3").setAttribute("href", "#films-modal");
-                document.getElementById("ModalFilms4").setAttribute("href", "#films-modal");
-                document.getElementById("ModalFilms5").setAttribute("href", "#films-modal");
-            }
-
-
-            // Music Below
-            function clickMeMusic(){
-                loadMusicGenres(); // load the genres
-
-                if(count === 0){
-                    count = 1; // increment the counter
-
-                    // Fetch all the btn containers
-                    var col1btn1 = document.getElementById("container_col1_btn1"); // Column 1
-                    var col1btn2 = document.getElementById("container_col1_btn2"); // Column 1
-                    var col1btn3 = document.getElementById("container_col1_btn3"); // Column 1
-                    // ...
-                    var col2btn1 = document.getElementById("container_col2_btn1"); // Column 2
-                    var col2btn2 = document.getElementById("container_col2_btn2"); // Column 2
-                    var col2btn3 = document.getElementById("container_col2_btn3"); // Column 2
-
-
-                    // Update the contents of each button container
-                    // This allows us to recreate the buttons + assign new functions
-                    // without having to refresh the page with new HTML
-
-                    // <> <> <>
-
-                    // Update COL 1, BTN 1
-                    // -------------------
-                    col1btn1.innerHTML = ""; // empty the container
-
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (1) to the genre selector modal
-                    col1btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalMusic1" onclick="fetchMusicByGenre(music_genres[0])">' +
-                        '<i id="MusicGanreIcon1" class="fa fa-fire"></i>' +
-                        '<p id="music1">'+music_genres[0]+'</p>' +
-                        '</a>';
-
-
-                    // Update COL 1, BTN 2
-                    // -------------------
-                    col1btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (2) to the genre selector modal
-                    col1btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalMusic2" onclick="fetchMusicByGenre(music_genres[1])">' +
-                        '<i id="MusicGanreIcon2" class="glyphicon glyphicon-sound-7-1"></i>' +
-                        '<p id="music2">'+music_genres[1]+'</p>' +
-                        '</a>';
-
-                    // Update COL 1, BTN 3
-                    // -------------------
-
-                    col1btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (3) to the genre selector modal
-                    col1btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalMusic3" onclick="fetchMusicByGenre(music_genres[2])">' +
-                        '<i id="MusicGanreIcon3" class="glyphicon glyphicon-stats"></i>' +
-                        '<p id="music3">'+music_genres[2]+'</p>' +
-                        '</a>';
-
-
-                    // ...
-
-                    // Update COL 2, BTN 1
-                    // -------------------
-
-                    col2btn1.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (4) to the genre selector modal
-                    col2btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalMusic4" onclick="fetchMusicByGenre(music_genres[3])">' +
-                        '<i id="MusicGanreIcon4" class="glyphicon glyphicon-music"></i>' +
-                        '<p id="music4">'+music_genres[3]+'</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 2
-                    // -------------------
-
-                    col2btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (5) to the genre selector modal
-                    col2btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalMusic5" onclick="fetchMusicByGenre(music_genres[4])">' +
-                        '<i id="MusicGanreIcon5" class="fa fa-microphone"></i>' +
-                        '<p id="music5">'+music_genres[4]+'</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 3
-                    // -------------------
-
-                    col2btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Onclick - Reload the page
-                    col2btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="BackBtnA"' +
-                        '<i id="BackBtnIcon" class="fa fa-xing-square"></i>' +
-                        '<p id="randomID">Back</p>' +
-                        '</a>';
-
-                    // reload on click
-                    document.getElementById("BackBtnA").setAttribute('href', window.location.href);
-                }
-            }
-
-            function fetchMusicByGenre(x){
-                // THIS SHOULD LOAD A DYNAMIC MODAL BASED ON THE GENRE
-
-                // Placeholder below
-                document.getElementById("ModalMusic1").setAttribute("href", "#music-modal");
-                document.getElementById("ModalMusic2").setAttribute("href", "#music-modal");
-                document.getElementById("ModalMusic3").setAttribute("href", "#music-modal");
-                document.getElementById("ModalMusic4").setAttribute("href", "#music-modal");
-                document.getElementById("ModalMusic5").setAttribute("href", "#music-modal");
-            }
-
-
-            // Books Below
-            function clickMeBooks(){
-                loadBooksGenre(); // load the genres
-
-                if(count === 0){
-                    count = 1; // increment the counter
-
-                    // Fetch all the btn containers
-                    var col1btn1 = document.getElementById("container_col1_btn1"); // Column 1
-                    var col1btn2 = document.getElementById("container_col1_btn2"); // Column 1
-                    var col1btn3 = document.getElementById("container_col1_btn3"); // Column 1
-                    // ...
-                    var col2btn1 = document.getElementById("container_col2_btn1"); // Column 2
-                    var col2btn2 = document.getElementById("container_col2_btn2"); // Column 2
-                    var col2btn3 = document.getElementById("container_col2_btn3"); // Column 2
-
-
-                    // Update the contents of each button container
-                    // This allows us to recreate the buttons + assign new functions
-                    // without having to refresh the page with new HTML
-
-                    // <> <> <>
-
-                    // Update COL 1, BTN 1
-                    // -------------------
-                    col1btn1.innerHTML = ""; // empty the container
-
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (1) to the genre selector modal
-                    col1btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalBooks1" onclick="fetchBooksByGenre(books_genres[0])">' +
-                        '<i id="BooksGanreIcon1" class="fa fa-pagelines"></i>' +
-                        '<p id="books1">'+books_genres[0]+'</p>' +
-                        '</a>';
-
-
-                    // Update COL 1, BTN 2
-                    // -------------------
-                    col1btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (2) to the genre selector modal
-                    col1btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalBooks2" onclick="fetchBooksByGenre(books_genres[1])">' +
-                        '<i id="BooksGanreIcon2" class="glyphicon glyphicon-heart-empty"></i>' +
-                        '<p id="books2">'+books_genres[1]+'</p>' +
-                        '</a>';
-
-                    // Update COL 1, BTN 3
-                    // -------------------
-
-                    col1btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (3) to the genre selector modal
-                    col1btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalBooks3" onclick="fetchBooksByGenre(books_genres[2])">' +
-                        '<i id="BooksGanreIcon3" class="fa fa-puzzle-piece"></i>' +
-                        '<p id="books3">'+books_genres[2]+'</p>' +
-                        '</a>';
-
-
-                    // ...
-
-                    // Update COL 2, BTN 1
-                    // -------------------
-
-                    col2btn1.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (4) to the genre selector modal
-                    col2btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalBooks4" onclick="fetchBooksByGenre(books_genres[3])">' +
-                        '<i id="BooksGanreIcon4" class="fa fa-eye-slash"></i>' +
-                        '<p id="books4">'+books_genres[3]+'</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 2
-                    // -------------------
-
-                    col2btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (5) to the genre selector modal
-                    col2btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalBooks5" onclick="fetchBooksByGenre(books_genres[4])">' +
-                        '<i id="BooksGanreIcon5" class="fa fa-magic"></i>' +
-                        '<p id="books5">'+books_genres[4]+'</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 3
-                    // -------------------
-
-                    col2btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Onclick - Reload the page
-                    col2btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="BackBtnA"' +
-                        '<i id="BackBtnIcon" class="fa fa-xing-square"></i>' +
-                        '<p id="randomID">Back</p>' +
-                        '</a>';
-
-                    // reload on click
-                    document.getElementById("BackBtnA").setAttribute('href', window.location.href);
-                }
-            }
-
-            function fetchBooksByGenre(x){
-                // THIS SHOULD LOAD A DYNAMIC MODAL BASED ON THE GENRE
-
-                // Placeholder below
-                document.getElementById("ModalBooks1").setAttribute("href", "#books-modal");
-                document.getElementById("ModalBooks2").setAttribute("href", "#books-modal");
-                document.getElementById("ModalBooks3").setAttribute("href", "#books-modal");
-                document.getElementById("ModalBooks4").setAttribute("href", "#books-modal");
-                document.getElementById("ModalBooks5").setAttribute("href", "#books-modal");
-            }
-
-
-            // Video Below
-            function clickMeVideo(){
-                if(count === 0){
-                    count = 1; // increment the counter
-
-                    // Fetch all the btn containers
-                    var col1btn1 = document.getElementById("container_col1_btn1"); // Column 1
-                    var col1btn2 = document.getElementById("container_col1_btn2"); // Column 1
-                    var col1btn3 = document.getElementById("container_col1_btn3"); // Column 1
-                    // ...
-                    var col2btn1 = document.getElementById("container_col2_btn1"); // Column 2
-                    var col2btn2 = document.getElementById("container_col2_btn2"); // Column 2
-                    var col2btn3 = document.getElementById("container_col2_btn3"); // Column 2
-
-
-                    // Update the contents of each button container
-                    // This allows us to recreate the buttons + assign new functions
-                    // without having to refresh the page with new HTML
-
-                    // <> <> <>
-
-                    // Update COL 1, BTN 1
-                    // -------------------
-                    col1btn1.innerHTML = ""; // empty the container
-
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (1) to the genre selector modal
-                    col1btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalVideo1" onclick="fetchVideoByGenre(1)">' +
-                        '<i id="VideoGanreIcon1" class="glyphicon glyphicon-certificate"></i>' +
-                        '<p id="video1">Sports</p>' +
-                        '</a>';
-
-
-                    // Update COL 1, BTN 2
-                    // -------------------
-                    col1btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (2) to the genre selector modal
-                    col1btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalVideo2" onclick="fetchVideoByGenre(2)">' +
-                        '<i id="VideoGanreIcon2" class="glyphicon glyphicon-wrench"></i>' +
-                        '<p id="video2">DIY</p>' +
-                        '</a>';
-
-                    // Update COL 1, BTN 3
-                    // -------------------
-
-                    col1btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (3) to the genre selector modal
-                    col1btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalVideo3" onclick="fetchVideoByGenre(3)">' +
-                        '<i id="VideoGanreIcon3" class="fa fa-bug"></i>' +
-                        '<p id="video3">Science</p>' +
-                        '</a>';
-
-
-                    // ...
-
-                    // Update COL 2, BTN 1
-                    // -------------------
-
-                    col2btn1.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (4) to the genre selector modal
-                    col2btn1.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalVideo4" onclick="fetchVideoByGenre(4)">' +
-                        '<i id="VideoGanreIcon4" class="fa fa-pencil"></i>' +
-                        '<p id="video4">Beauty</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 2
-                    // -------------------
-
-                    col2btn2.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Parse (5) to the genre selector modal
-                    col2btn2.innerHTML =
-                        '<a href="#" data-toggle="modal" id="ModalVideo5" onclick="fetchVideoByGenre(5)">' +
-                        '<i id="VideoGanreIcon5" class="fa fa-microphone"></i>' +
-                        '<p id="video5">Cover</p>' +
-                        '</a>';
-
-                    // Update COL 2, BTN 3
-                    // -------------------
-
-                    col2btn3.innerHTML = ""; // empty the container
-
-                    // 1. Insert new <a> and assign the new function
-                    // 2. Change the icon
-                    // 3. Change the button text
-                    // 4. Onclick - Reload the page
-                    col2btn3.innerHTML =
-                        '<a href="#" data-toggle="modal" id="BackBtnA"' +
-                        '<i id="BackBtnIcon" class="fa fa-xing-square"></i>' +
-                        '<p id="randomID">Back</p>' +
-                        '</a>';
-
-                    // reload on click
-                    document.getElementById("BackBtnA").setAttribute('href', window.location.href);
-                }
-            }
-
-            function fetchVideoByGenre(x){
-                // THIS SHOULD LOAD A DYNAMIC MODAL BASED ON THE GENRE
-
-                // Placeholder below
-                document.getElementById("ModalVideo1").setAttribute("href", "#video-modal");
-                document.getElementById("ModalVideo2").setAttribute("href", "#video-modal");
-                document.getElementById("ModalVideo3").setAttribute("href", "#video-modal");
-                document.getElementById("ModalVideo4").setAttribute("href", "#video-modal");
-                document.getElementById("ModalVideo5").setAttribute("href", "#video-modal");
-            }
-          </script>
-
-
-            <!-- Left Col, Btn 3 -->
-
-          <div class="menu-item light-red" id="container_col1_btn3"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#aboutus-modal" data-toggle="modal">
-              <i id="AboutusGanreIcon" class="fa fa-user"></i>
-              <p id="aboutusID">About Us</p>
-            </a>
-          </div>
-
-        </div>
-
-        <!--
-            <><><><><><><><><>
-            Right Column Below
-        -->
-
-
-        <div class="col-md-6">
-
-            <!-- Right Col, Btn 1 -->
-
-            <div class="menu-item brown" id="container_col2_btn1"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#" data-toggle="modal" id="ModalBooksGanres" onclick="clickMeBooks()">
-              <i id="BooksGanreIcon" class="fa fa-book"></i>
-              <p id="booksID">Book's</p>
-            </a>
-          </div>
-
-            <!-- Right Col, Btn 2 -->
-
-          <div class="menu-item red" id="container_col2_btn2"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#" data-toggle="modal" id="ModalVideoGanres" onclick="clickMeVideo()">
-              <i id="VideoGanreIcon" class="glyphicon glyphicon-hd-video"></i>
-              <p id="videoID">Video</p>
-            </a>
-          </div>
-
-            <!-- Right Col, Btn 3 -->
-
-          <div class="menu-item blue" id="container_col2_btn3"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#random-modal" data-toggle="modal" id="ModalRandomGanres">
-              <i id="RandomGanreIcon" class="fa fa-random"></i>
-              <p id="randomID">Random!</p>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    </div>
-    <!-- Main Body END -->
+    <section class="mainbody-section text-center">
+		<div class="container">
+			<div class="row">
+				<!-- Left Column Below -->
+				<div class="col-md-6">
+
+					<!-- Left Col, Btn 1 -->
+					<div class="menu-item blue" id="container_col1_btn1"> <!-- The div is given an id, so we can edit the content -->
+						<a href="#" data-toggle="modal" id="ModalFilmsGanres" onclick="clickMeFilms()">
+							<!-- Btn Icon -->
+							<i id="FilmGanreIcon" class="glyphicon glyphicon-facetime-video"></i>
+							<!-- Btn Label -->
+							<p id="filmsID">Films</p>
+						</a>
+					</div><!-- L1 end -->
+
+					<!-- Left Col, Btn 2 -->
+					<div class="menu-item green" id="container_col1_btn2">
+						<a href="#" data-toggle="modal" id="ModalMusicGanres" onclick="clickMeMusic()">
+							<i id="MusicGanreIcon" class="fa fa-music"></i>
+							<p id="musicID">Music</p>
+						</a>
+					</div><!-- L2 end -->
+
+					<!-- Left Col, Btn 3 -->
+					<div class="menu-item light-red" id="container_col1_btn3">
+						<a href="#aboutus-modal" data-toggle="modal">
+							<i id="AboutusGanreIcon" class="fa fa-user"></i>
+							<p id="aboutusID">About Us</p>
+						</a>
+					</div><!-- L3 end -->
+
+				</div><!-- left column END -->
+				<!-- Right Column Below -->
+				<div class="col-md-6">
+				
+					<!-- Right Col, Btn 1 -->
+					<div class="menu-item brown" id="container_col2_btn1">
+						<a href="#" data-toggle="modal" id="ModalBooksGanres" onclick="clickMeBooks()">
+							<i id="BooksGanreIcon" class="fa fa-book"></i>
+							<p id="booksID">Books</p>
+						</a>
+					</div><!-- R1 end -->
+
+					<!-- Right Col, Btn 2 -->
+					<div class="menu-item red" id="container_col2_btn2">
+						<a href="#" data-toggle="modal" id="ModalVideoGanres" onclick="clickMeVideo()">
+							<i id="VideoGanreIcon" class="glyphicon glyphicon-hd-video"></i>
+							<p id="videoID">Video</p>
+						</a>
+					</div><!-- R2 end -->
+
+					<!-- Right Col, Btn 3 -->
+					<div class="menu-item blue" id="container_col2_btn3" onclick="pickMusicGenres(1); outputSongByGenre(selectedMusicGenres[0])"><!-- onclick property WIP -->
+						<a href="#generated-modal" data-toggle="modal" id="ModalRandomGanres">
+							<i id="RandomGanreIcon" class="fa fa-random"></i>
+							<p id="randomID">Random!</p>
+						</a>
+					</div><!-- R3 end -->
+					
+				</div><!-- right column END -->
+			</div><!-- row END -->
+		</div>
+    </section>
+	<!-- Main Body END -->
 
     <!-- Footer START -->
-    <div class="copyright text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        </div>
-        Desing By <a href="#aboutus-modal" data-toggle="modal">Ilja</a>. and bla bla bla..
-      </div>
-    </div>
-    </div>
-    <!-- Footer END -->
+    <footer class="copyright text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>Created by CASD7 team</p>
+					<p>2017</p>
+				</div>
+			</div>
+		</div>
+    </footer>
+	<!-- Footer END -->
 
-    <!--
-    Initial content END
+    <!-- Initial content END
 
     <><><><><><><><><><><><><><>
 
     Modal windows generated below:
     --- --- --- --- --- --- --- --
-    1. Generic Films modal container
-    2. Generic Books modal container
-    3. Generic Video modal container
-    4. About us modal container
-    5. Random content modal container
-
-
-    The modal containers will be populated with data from the APIs
+    About us modal container
+    Generated API content modal container - will be populated with data from the APIs
     -->
-
-
-    <!-- Films modal START -->
-    <div class="section-modal modal fade" id="films-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-
-          <div class="films">
-            <img src="images/powerrangers.jpg" width="189" height="255" alt="lorem">
-            <div class="feature-content">
-              <h4>Power Rangers (2017)</h4>
-              <p>A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world.</p>
-              <p>
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                  </table>
-                </div>
-
-              </p>
-              <a href="/" class="but">Watch the Film</a>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-6">
-
-          <div class="films">
-            <img src="images/powerrangers.jpg" width="189" height="255" alt="lorem">
-            <div class="feature-content">
-              <h4>Power Rangers (2017)</h4>
-              <p>A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world.</p>
-              <p>
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                    <tr>
-                      <td>Director:</td>
-                      <td>Dean Israelite</td>
-                    </tr>
-                  </table>
-                </div>
-
-              </p>
-              <a href="/" class="but">Watch the Film</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    </div>
-    </div>
-    <!-- Films modal END -->
-
-
-
-    <!-- Music modal START -->
-    <div class="section-modal modal fade" id="music-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-md-4">
-
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="fa fa-play-circle" aria-hidden="true"></span>  Сassidy – I' m A Hustle
-          </button>
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    <!-- Music modal END -->
-
-    <!-- Books modal START -->
-    <div class="section-modal modal fade" id="books-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-
-          <div class="films">
-            <img src="images/mount.jpg" width="189" height="255" alt="lorem">
-            <div class="feature-content">
-              <h4>Mount!</h4>
-              <p>By: Jilly Cooper</p>
-              <p>In Jilly Cooper's latest, raciest novel, Rupert Campbell-Black takes centre stage in the cut-throat world of flat racing. Rupert is consumed by one obsession: that Love Rat, his adored grey horse, be proclaimed champion stallion. He longs to trounce Roberto's Revenge, the stallion owned by his detested rival Cosmo Rannaldini, which means abandoning his racing empire at Penscombe and his darling wife Taggie, and chasing winners in the richest races worldwide, from Dubai to Los Angeles to Melbourne. Luckily, the fort at home is held by Rupert's assistant Gav, a genius with horses, fancied by every stable lass, but damaged by alcoholism and a vile wife. When Gala, a grieving but ravishing Zimbabwean widow moves to Penscombe as carer for Rupert's wayward father, it is not just Gav who is attracted to her: a returning Rupert finds himself dangerously tempted. Gala adores horses, and when she switches to working in the yard, her carer's job is taken by a devastatingly handsome South African man who claims to be gay but seems far keener on caring for the angelic Taggie. And as increasingly sinister acts of sabotage strike at Penscombe, the game of musical loose boxes gathers apace ...Everybody loves Jilly Cooper: "Sex and horses: who could ask for more? " (Sunday Telegraph). "Joyful and mischeivous". (Jojo Moyes). "A delight from start to finish". (Daily Mail). "Fun, sexy and unputdownable". (Marian Keyes). "Escape into an alternative universe in which all is right with the world". (Guardian). "Flawlessly entertaining". (Helen Fielding).</p>
-              <p>
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <tr>
-                      <td>Publication Date:</td>
-                      <td>23/02/2017</td>
-                    </tr>
-                    <tr>
-                      <td>Publication Date:</td>
-                      <td>23/02/2017</td>
-                    </tr>
-                    <tr>
-                      <td>Format:</td>
-                      <td>Paperback</td>
-                    </tr>
-                  </table>
-                </div>
-
-              </p>
-              <a href="#" class="but">Read/Buy the Book</a>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-6">
-
-          <div class="films">
-            <img src="images/mount.jpg" width="189" height="255" alt="lorem">
-            <div class="feature-content">
-              <h4>Mount!</h4>
-              <p>By: Jilly Cooper</p>
-              <p>In Jilly Cooper's latest, raciest novel, Rupert Campbell-Black takes centre stage in the cut-throat world of flat racing. Rupert is consumed by one obsession: that Love Rat, his adored grey horse, be proclaimed champion stallion. He longs to trounce Roberto's Revenge, the stallion owned by his detested rival Cosmo Rannaldini, which means abandoning his racing empire at Penscombe and his darling wife Taggie, and chasing winners in the richest races worldwide, from Dubai to Los Angeles to Melbourne. Luckily, the fort at home is held by Rupert's assistant Gav, a genius with horses, fancied by every stable lass, but damaged by alcoholism and a vile wife. When Gala, a grieving but ravishing Zimbabwean widow moves to Penscombe as carer for Rupert's wayward father, it is not just Gav who is attracted to her: a returning Rupert finds himself dangerously tempted. Gala adores horses, and when she switches to working in the yard, her carer's job is taken by a devastatingly handsome South African man who claims to be gay but seems far keener on caring for the angelic Taggie. And as increasingly sinister acts of sabotage strike at Penscombe, the game of musical loose boxes gathers apace ...Everybody loves Jilly Cooper: "Sex and horses: who could ask for more? " (Sunday Telegraph). "Joyful and mischeivous". (Jojo Moyes). "A delight from start to finish". (Daily Mail). "Fun, sexy and unputdownable". (Marian Keyes). "Escape into an alternative universe in which all is right with the world". (Guardian). "Flawlessly entertaining". (Helen Fielding).</p>
-              <p>
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <tr>
-                      <td>Publication Date:</td>
-                      <td>23/02/2017</td>
-                    </tr>
-                    <tr>
-                      <td>Publication Date:</td>
-                      <td>23/02/2017</td>
-                    </tr>
-                    <tr>
-                      <td>Format:</td>
-                      <td>Paperback</td>
-                    </tr>
-                  </table>
-                </div>
-
-              </p>
-              <a href="#" class="but">Read/Buy the Book</a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    </div>
-    </div>
-    <!-- Books modal END -->
-
-    <!-- Video modal START -->
-    <div class="section-modal modal fade" id="video-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-8">
-
-          <img src="images/youtube1.jpg" width=100% height=100% alt="lorem">
-          <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-        </div>
-        <div class="col-xs-6 col-md-4">
-
-         <img src="images/youtube2.jpg" width=100% height=100% alt="lorem">
-         <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-       </div>
-       <hr>
-       <div class="col-xs-6 col-md-4">
-
-         <img src="images/youtube3.jpg" width=100% height=100% alt="lorem" >
-         <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-       </div>
-     </div>
-     <div class="row">
-      <div class="col-xs-6">
-
-       <img src="images/youtube4.jpg" width=100% height=100% alt="lorem" >
-       <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-     </div>
-     <div class="col-xs-6">
-
-      <img src="images/youtube5.jpg" width=100% height=100% alt="lorem" >
-      <p>#Сassidy #I' m A Hustle #Jay Z #Hip-hop/rap #2005</p>
-
-    </div>
-    </div>
-    </div>
-
-    </div>
-    </div>
-    <!-- Video modal END -->
 
     <!-- About Us modal START -->
     <div class="section-modal modal fade" id="aboutus-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
-      </div>
-    </div>
+		<div class="modal-content">
+		
+			<!-- modal window close button -->
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl">
+					</div>
+				</div>
+			</div>
 
-    <div class="container">
-      <div class="row"><center>
-        <div class="col-xs-6 col-md-4">
+			<div class="container">
+				<div class="row">
+					<center>
+					
+						<!-- ilja -->
+						<div class="col-xs-6 col-md-4">
+							<div class="aboutus">
+								<div class="feature-content">
+									<div class="container4photo">
+										<img src="images/ilja.jpg" width=50% height=50% alt="Avatar" class="image4photo">
+										<div class="overlay4photo">
+											<div class="text4photo">Info about me... I will add later...</div>
+										</div>
+									</div>
+									<h4>Ilja Magdenko</h4>
+									<p>1407563@rgu.ac.uk</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- vlad -->
+						<div class="col-xs-6 col-md-4">
+							<div class="aboutus">
+								<div class="feature-content">
+									<div class="container4photo">
+										<img src="images/avatar.png" width=50% height=50% alt="Avatar" class="image4photo">
+										<div class="overlay4photo">
+											<div class="text4photo">Keine Lust</div>
+										</div>
+									</div>
+									<h4>Vladimirs Rastopcins</h4>
+									<p>1606883@rgu.ac.uk</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- jiri -->
+						<div class="col-xs-6 col-md-4">
+							<div class="aboutus">
+								<div class="feature-content">
+									<div class="container4photo">
+									<img src="images/jiri.jpg" width=50% height=50% alt="Avatar" class="image4photo">
+										<div class="overlay4photo">
+											<div class="text4photo">Info about me... I will add later...</div>
+										</div>
+									</div>
+									<h4>Jiri Ruzicka</h4>
+									<p>1508682@rgu.ac.uk</p>
+								</div>
+							</div>
+						</div>
+						
+					</center>
+				</div><!-- row end -->
+				<div class="row">
+					<center>
+					
+						<!-- david -->
+						<div class="col-xs-6">
+							<div class="aboutus">
+								<div class="feature-content">
+									<div class="container4photo">
+										<img src="images/david.jpg" width=50% height=50% alt="Avatar" class="image4photo">
+										<div class="overlay4photo">
+											<div class="text4photo">Info about me... I will add later...</div>
+										</div>
+									</div>
+									<h4>David Bruce</h4>
+									<p>0705281@rgu.ac.uk</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- max -->
+						<div class="col-xs-6">
+							<div class="aboutus">
+								<div class="feature-content">
+									<div class="container4photo">
+										<img src="images/max.jpg" width=50% height=50% alt="Avatar" class="image4photo">
+										<div class="overlay4photo">
+											<div class="text4photo">Info about me... I will add later...</div>
+										</div>
+									</div>
+									<h4>Maxim Sarandev</h4>
+									<p>1406519@rgu.ac.uk</p>
+								</div>
+							</div>
+						</div>
+					
+					</center>
+				</div><!-- row end -->
+			</div>
+		</div>
+    </div>
+	<!-- About Us modal END -->
 
-          <div class="aboutus">
-              <div class="feature-content">
-                  <div class="container4photo">
-                      <img src="images/ilja.jpg" width=50% height=50% alt="Avatar" class="image4photo">
-                      <div class="overlay4photo">
-                          <div class="text4photo">Info about me... I will add later...</div>
-                      </div>
-                  </div>
-                  <h4>Ilja Magdenko</h4>
-              </div>
-          </div></div>
-        <div class="col-xs-6 col-md-4">
-            <div class="aboutus">
-            <div class="feature-content">
-                <div class="container4photo">
-                    <img src="images/avatar.png" width=50% height=50% alt="Avatar" class="image4photo">
-                    <div class="overlay4photo">
-                        <div class="text4photo">Info about me... I will add later...</div>
-                    </div>
-                </div>
-                <h4>Vladimirs Rastopcins</h4>
-            </div>
-        </div>
-        </div>
-        <div class="col-xs-6 col-md-4">
-            <div class="aboutus">
-            <div class="feature-content">
-                <div class="container4photo">
-                    <img src="images/jiri.jpg" width=50% height=50% alt="Avatar" class="image4photo">
-                    <div class="overlay4photo">
-                        <div class="text4photo">Info about me... I will add later...</div>
-                    </div>
-                </div>
-                <h4>Jiri Ruzicka</h4>
-            </div>
-        </div>
-        </div>
-      </center></div>
-      <div class="row"><center>
-        <div class="col-xs-6">
-            <div class="aboutus">
-            <div class="feature-content">
-                <div class="container4photo">
-                    <img src="images/david.jpg" width=50% height=50% alt="Avatar" class="image4photo">
-                    <div class="overlay4photo">
-                        <div class="text4photo">Info about me... I will add later...</div>
-                    </div>
-                </div>
-                <h4>David Bruce</h4>
-            </div>
-        </div></div>
-        <div class="col-xs-6">
-          <div class="aboutus">
-            <div class="feature-content">
-              <div class="container4photo">
-                <img src="images/max.jpg" width=50% height=50% alt="Avatar" class="image4photo">
-                <div class="overlay4photo">
-                  <div class="text4photo">Info about me... I will add later...</div>
-                </div>
-              </div>
-              <h4>Maxim Sarandev</h4>
-            </div>
-          </div></div>
-        </center></div>
-      </div>
-
+    <!-- Generated API content modal START -->
+    <div class="section-modal modal fade" id="generated-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-content">
+			<!-- modal window close button -->
+			<div class="close-modal" data-dismiss="modal" onclick="document.getElementById('result').innerHTML = ''">
+				<div class="lr">
+					<div class="rl">
+					</div>
+				</div>
+			</div>
+			
+			<!-- modal window container -->
+			<div class="container" id="result" >
+				<p>*generated content goes here*</p>
+			</div>
+		</div>
     </div>
-    </div>
-    <!-- About Us modal END -->
-
-    <!-- Random modal START -->
-    <div class="section-modal modal fade" id="random-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      There will be random modal.
-    </div>
-
-    </div>
-    </div>
-    <!-- Random modal END -->
+	<!-- Generated API content modal END -->
 
 </body>
 </html>
