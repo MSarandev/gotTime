@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Last Edited by Vlad on 13/4/2017 @ 1720-->
+<!-- Last Edited by Max on 18/4/2017 @ 0000-->
 
 <head>
   <meta charset="utf-8">
@@ -22,70 +22,24 @@
   <!-- Scipts import -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/script.js"></script>
+  <!-- DON'T MOVE THE LINE BELOW !!!! -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <!-- Imports jQuery before importing the main js @MAX -->
   <script src="js/scripts.js"></script>
-  <!-- ilja's scripts  - will be later moved to js file-->
-  <script>
-  function bookSearch(){
-    var search = document.getElementById('search').value;
-    document.getElementById('result').innerHTML = "";
-    console.log(search);
-    var randomz = Math.floor((Math.random() * 100) + 1);
-
-    $.ajax({
-      url: "https://www.googleapis.com/books/v1/volumes?q=subject:" + search + "&startIndex=" + randomz + "&language:en",
-      dataType: "json",
-
-      success: function(data) {
-        for(i = 0; i < 2; i++){
-          result.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail +" width=" + "189"+" height="+"255"+" alt="+"lorem"+"></center>"
-          result.innerHTML += "<div class="+"feature-content"+">"
-          result.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
-          result.innerHTML += "<div class="+"table-responsive"+">"
-          result.innerHTML += "<table class="+"table"+">"
-          result.innerHTML += "<tr>"
-          result.innerHTML += "<td><b>Publication Date: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.publishedDate
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Categories: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.categories
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Pages: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.pageCount
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Description: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.description
-          result.innerHTML += "</br>"
-          result.innerHTML += "</tr>"
-          result.innerHTML += "</table>"
-          result.innerHTML += "</div>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "</div>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "</br>"
-
-        }
-      },
-
-      type: 'GET'
-    });
-
-  }
-  //script wasn't working if placed in file because of line below;
-  //this was because property (onclick) was assigned before element was initialized (button)
-  //i've fixed it by adding onclick="bookSearch()" to button properties - vlad
-  //still, the way user gets books needs to be changed
-  //document.getElementById('button').addEventListener('click', bookSearch, false)
-
-  </script>
+  <!-- YouTube specific js below -->
+  <script src="js/auth.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady">  </script>
+  <!-- TODO: move script to a separate file -->
+  <!-- Books search moved @MAX 18/04 -->
   <script src="js/musicScripts.js"></script>
   <!-- <><><> -->
 </head>
 
+
 <!-- starting to read user's pressed keys as soon as page loads - needed for konami code -->
-<body onload="konamiCode()">
+<!-- getting main button containers and putting them into array - needed for button updates -->
+<!-- getting list of music genres from deezer - needed for genre image display -->
+<body onload="konamiCode(); getHtmlButtons(); getDeezerMusicGenres();">
   <!-- Initial Webpage content below -->
 
   <!-- Header START-->
@@ -96,8 +50,9 @@
           <div class="logo text-center">
             <!-- "Logo" text below -->
             <h1>Got time?</h1>
-            <!-- Flashing text below -->
-            <div class="area">⚠ Your time eater web-site! ⚠</div>
+            <!-- Flashing text below - TO BE REMOVED - causes huge perfomance issues, left for investigation -->
+            <!--<div class="area">⚠ Your time eater web-site! ⚠</div>-->
+            <!-- TODO: add sub header -->
           </div>
         </div>
       </div>
@@ -113,28 +68,26 @@
         <div class="col-md-6">
 
           <!-- Left Col, Btn 1 -->
-          <div class="menu-item blue" id="container_col1_btn1"> <!-- The div is given an id, so we can edit the content -->
-            <a href="#" data-toggle="modal" id="ModalFilmsGanres" onclick="clickMeFilms()">
-              <!-- Btn Icon -->
-              <i id="FilmGanreIcon" class="glyphicon glyphicon-facetime-video"></i>
-              <!-- Btn Label -->
-              <p id="filmsID">Films</p>
+          <div class="menu-item blue" id="container_col1_btn1">
+            <a href="#" data-toggle="modal" onclick="clickMeFilms()">
+              <i class="glyphicon glyphicon-facetime-video"></i>
+              <p>Films</p>
             </a>
           </div><!-- L1 end -->
 
           <!-- Left Col, Btn 2 -->
           <div class="menu-item green" id="container_col1_btn2">
-            <a href="#" data-toggle="modal" id="ModalMusicGanres" onclick="clickMeMusic()">
-              <i id="MusicGanreIcon" class="fa fa-music"></i>
-              <p id="musicID">Music</p>
+            <a href="#" data-toggle="modal" onclick="clickMeMusic()">
+              <i class="fa fa-music"></i>
+              <p>Music</p>
             </a>
           </div><!-- L2 end -->
 
           <!-- Left Col, Btn 3 -->
           <div class="menu-item light-red" id="container_col1_btn3">
             <a href="#aboutus-modal" data-toggle="modal">
-              <i id="AboutusGanreIcon" class="fa fa-user"></i>
-              <p id="aboutusID">About Us</p>
+              <i class="fa fa-user"></i>
+              <p>About Us</p>
             </a>
           </div><!-- L3 end -->
 
@@ -144,25 +97,25 @@
 
           <!-- Right Col, Btn 1 -->
           <div class="menu-item brown" id="container_col2_btn1">
-            <a href="#" data-toggle="modal" id="ModalBooksGanres" onclick="clickMeBooks()">
-              <i id="BooksGanreIcon" class="fa fa-book"></i>
-              <p id="booksID">Books</p>
+            <a href="#" data-toggle="modal" onclick="clickMeBooks()">
+              <i class="fa fa-book"></i>
+              <p>Books</p>
             </a>
           </div><!-- R1 end -->
 
           <!-- Right Col, Btn 2 -->
           <div class="menu-item red" id="container_col2_btn2">
-            <a href="#" data-toggle="modal" id="ModalVideoGanres" onclick="clickMeVideo()">
-              <i id="VideoGanreIcon" class="glyphicon glyphicon-hd-video"></i>
-              <p id="videoID">Video</p>
+            <a href="#" data-toggle="modal" onclick="clickMeVideo()">
+              <i class="glyphicon glyphicon-hd-video"></i>
+              <p>Videos</p>
             </a>
           </div><!-- R2 end -->
 
           <!-- Right Col, Btn 3 -->
-          <div class="menu-item blue" id="container_col2_btn3" onclick="pickMusicGenres(1); outputSongByGenre(selectedMusicGenres[0])"><!-- onclick property WIP -->
-            <a href="#generated-modal" data-toggle="modal" id="ModalRandomGanres">
-              <i id="RandomGanreIcon" class="fa fa-random"></i>
-              <p id="randomID">Random!</p>
+          <div class="menu-item blue" id="container_col2_btn3">
+            <a href="#generated-modal" data-toggle="modal" onclick="randomButton()">
+              <i class="fa fa-random"></i>
+              <p>Random!</p>
             </a>
           </div><!-- R3 end -->
 
@@ -185,17 +138,18 @@
   </footer>
   <!-- Footer END -->
 
-  <!-- Initial content END
+  <!-- Initial content END -->
 
-  <><><><><><><><><><><><><><>
+  <!--<><><><><><><><><><><><><><>-->
 
-  Modal windows generated below:
-  --- --- --- --- --- --- --- --
-  Books modal container - left for ilja to transfer generated content into common modal container
-  About us modal container
-  Generated API content modal container - will be populated with data from the APIs
--->
+  <!--Modal windows generated below:-->
+  <!----- --- --- --- --- --- --- ---->
+  <!--Books modal container - left for ilja to transfer generated content into common modal container-->
+  <!--About us modal container-->
+  <!--Generated API content modal container - will be populated with data from the APIs-->
 
+
+<!-- TODO: books modal to be removed -->
 <!-- Books modal START -->
 <div class="section-modal modal fade" id="books-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
@@ -208,14 +162,9 @@
 
     <div class="container">
       <div class="row">
-
-        <div class="films">
-          <h1>Book Finder</h1>
-          <input id="search" placeholder="Cattegory">
-          <button id="button" type="button" onclick="bookSearch()">Click me</button>
-          <div id="result"></div>
+        <div id="result">
+          <!-- Removed the searchbar @MAX 18/04 -->
         </div>
-
       </div>
     </div>
 
@@ -334,7 +283,7 @@
 <!-- About Us modal END -->
 
 <!-- Generated API content modal START -->
-<div class="section-modal modal fade" id="generated-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="section-modal modal fade" id="generated-modal" tabindex="-1" role="dialog" aria-hidden="true" onkeypress="test()">
   <div class="modal-content">
     <!-- modal window close button -->
     <div class="close-modal" data-dismiss="modal" onclick="document.getElementById('generatedResult').innerHTML = ''">
