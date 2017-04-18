@@ -22,66 +22,15 @@
   <!-- Scipts import -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
-  <!-- WTF IS THIS?? -->
-  <!-- <script src="js/script.js"></script> -->
+  <!-- DON'T MOVE THE LINE BELOW !!!! -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <!-- Imports jQuery before importing the main js @MAX -->
   <script src="js/scripts.js"></script>
+  <!-- YouTube specific js below -->
+  <script src="js/auth.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady">  </script>
   <!-- TODO: move script to a separate file -->
-  <!-- ilja's scripts  - will be later moved to js file-->
-  <script>
-  function bookSearch(){
-    var search = document.getElementById('search').value;
-    document.getElementById('result').innerHTML = "";
-    console.log(search);
-    var randomz = Math.floor((Math.random() * 100) + 1);
-
-    $.ajax({
-      url: "https://www.googleapis.com/books/v1/volumes?q=subject:" + search + "&startIndex=" + randomz + "&language:en",
-      dataType: "json",
-
-      success: function(data) {
-        for(i = 0; i < 2; i++){
-          result.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail +" width=" + "189"+" height="+"255"+" alt="+"lorem"+"></center>"
-          result.innerHTML += "<div class="+"feature-content"+">"
-          result.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
-          result.innerHTML += "<div class="+"table-responsive"+">"
-          result.innerHTML += "<table class="+"table"+">"
-          result.innerHTML += "<tr>"
-          result.innerHTML += "<td><b>Publication Date: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.publishedDate
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Categories: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.categories
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Pages: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.pageCount
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Description: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.description
-          result.innerHTML += "</br>"
-          result.innerHTML += "</tr>"
-          result.innerHTML += "</table>"
-          result.innerHTML += "</div>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "</div>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "</br>"
-
-        }
-      },
-
-      type: 'GET'
-    });
-
-  }
-  //script wasn't working if placed in file because of line below;
-  //this was because property (onclick) was assigned before element was initialized (button)
-  //i've fixed it by adding onclick="bookSearch()" to button properties - vlad
-  //still, the way user gets books needs to be changed
-  //document.getElementById('button').addEventListener('click', bookSearch, false)
-
-  </script>
+  <!-- Books search moved @MAX 18/04 -->
   <script src="js/musicScripts.js"></script>
   <!-- <><><> -->
 </head>
@@ -213,14 +162,9 @@
 
     <div class="container">
       <div class="row">
-
-        <div class="films">
-          <h1>Book Finder</h1>
-          <input id="search" placeholder="Cattegory">
-          <button id="button" type="button" onclick="bookSearch()">Click me</button>
-          <div id="result"></div>
+        <div id="result">
+          <!-- Removed the searchbar @MAX 18/04 -->
         </div>
-
       </div>
     </div>
 

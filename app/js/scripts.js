@@ -1,5 +1,13 @@
-//Last edited on 18/04/2017 @ 0000 by Vlad
+// Last edit - MAX 18/04
+// Contents:
+// Books API linked to btn genre
+// Books display in modal
+// Books searchbar/button removed
+// Youtube API imported + linked
+// Youtube videos pulled based on btn genre
 
+
+//Last edited on 18/04/2017 @ 0000 by Vlad
 //Contents:
 //Line 13 - 114: variables and functions for "fixed" button generation (category buttons, about us, back)
 //Line 116 - 169: variables and functions for genre generation
@@ -284,20 +292,100 @@ function fetchMusicByGenre(musicGenre){
 
 
 
-
+// UPDATED 18/04 @MAX
+// <><><><><><><><><>
 //BOOK API GOES HERE
 function fetchBookByGenre(bookGenre){
-  //code that runs upon book genre button press
-  document.getElementById("generatedResult").innerHTML = '<p>Book - ' + bookGenre + '</p>';
+    //code that runs upon book genre button press
+    var search = bookGenre;
+    document.getElementById('result').innerHTML = "";
+    var randomz = Math.floor((Math.random() * 100) + 1);
+
+    $.ajax({
+        url: "https://www.googleapis.com/books/v1/volumes?q=subject:" + search + "&startIndex=" + randomz + "&language:en",
+        dataType: "json",
+
+        success: function(data) {
+            for(i = 0; i < 2; i++){
+                result.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail +" width=" + "189"+" height="+"255"+" alt="+"lorem"+"></center>"
+                result.innerHTML += "<div class="+"feature-content"+">"
+                result.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
+                result.innerHTML += "<div class="+"table-responsive"+">"
+                result.innerHTML += "<table class="+"table"+">"
+                result.innerHTML += "<tr>"
+                result.innerHTML += "<td><b>Publication Date: </b></td>"
+                result.innerHTML += data.items[i].volumeInfo.publishedDate
+                result.innerHTML += "</br>"
+                result.innerHTML += "<td><b>Categories: </b></td>"
+                result.innerHTML += data.items[i].volumeInfo.categories
+                result.innerHTML += "</br>"
+                result.innerHTML += "<td><b>Pages: </b></td>"
+                result.innerHTML += data.items[i].volumeInfo.pageCount
+                result.innerHTML += "</br>"
+                result.innerHTML += "<td><b>Description: </b></td>"
+                result.innerHTML += data.items[i].volumeInfo.description
+                result.innerHTML += "</br>"
+                result.innerHTML += "</tr>"
+                result.innerHTML += "</table>"
+                result.innerHTML += "</div>"
+                result.innerHTML += "</br>"
+                result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+                result.innerHTML += "</br>"
+                result.innerHTML += "</div>"
+                result.innerHTML += "</br>"
+                result.innerHTML += "</br>"
+
+            }
+        },
+
+        type: 'GET'
+    });
 }
 
 
 
-
+// UPDATED 18/04 @MAX
+// <><><><><><><><><>
 //VIDEOS API GOES HERE
 function fetchVideoByGenre(videoGenre){
-  //code that runs upon video genre button press
-  document.getElementById("generatedResult").innerHTML = '<p>Video - ' + videoGenre + '</p>';
+    // MAKE SURE TO EXEC GAPI AFTER THE DOCUMENT IS READY
+    $(document).ready(function() {
+        gapi.client.setApiKey('AIzaSyCSceFCV5K0_4O6Rn52sm-ywlvH1UXLBGw'); // assign the API key
+        gapi.client.load('youtube', 'v3', function () { // Youtube authentication
+            makeRequest(); // More youtube authentication
+        });
+    });
+
+    function makeRequest() {
+        // define the request
+        var q = videoGenre; // give the query a keyword (FROM GENRE LIST)
+        var request = gapi.client.youtube.search.list({ // youtube request code
+            q: q, // keyword
+            part: 'snippet', // specify what to return
+            maxResults: 2 // results limit
+        });
+
+        // execute the request
+        request.execute(function(response)  {
+            $('#generatedResult').empty(); // clears the container
+            var srchItems = response.result.items; // defines the return type
+
+            $.each(srchItems, function(index, item) { // for each loop until the max return item val
+                vidTitle = item.snippet.title; // fetch the title
+
+                // fetch the URL and prepare for embedding
+                var urlString = "https://www.youtube.com/embed/" + item.id.videoId;
+
+                // create new container for each video
+                $('#generatedResult').append('<span>'+
+                    vidTitle+
+                    '</br>' +
+                    // define the iframe and plug src
+                    '<iframe src="'+urlString+'" width="800px" height="600px"></iframe>' +
+                    '</span>' + '</br></br>');
+            })
+        })
+    }
 }
 
 
