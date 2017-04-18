@@ -288,25 +288,25 @@ function fetchFilmByGenre(filmGenre){
           randomindex = Math.floor((Math.random() * 20) + 1);
         } while(randomindex === ri);
         generatedResult.innerHTML += "<center><img src=https://image.tmdb.org/t/p/w500" + data.results[randomindex].poster_path +" width=" + "189"+" height="+"255"+" alt="+"lorem"+"></center>"
-          generatedResult.innerHTML += "<div class="+"feature-content"+">"
-          generatedResult.innerHTML += "<h4><center>" + data.results[randomindex].title + "</center></h4>"
-          generatedResult.innerHTML += "<div class="+"table-responsive"+">"
-          generatedResult.innerHTML += "<table class="+"table"+">"
-          generatedResult.innerHTML += "<tr>"
-          generatedResult.innerHTML += "<td><b>Release Date: </b></td>"
-          generatedResult.innerHTML += data.results[randomindex].release_date
-          generatedResult.innerHTML += "</br>"
-          generatedResult.innerHTML += "<td><b>Grade: </b></td>"
-          generatedResult.innerHTML += data.results[randomindex].vote_average
-          generatedResult.innerHTML += "</br>"
-          generatedResult.innerHTML += "<td><b>Description: </b></td>"
-          generatedResult.innerHTML += data.results[randomindex].overview
-          generatedResult.innerHTML += "</br>"
-          generatedResult.innerHTML += "</tr>"
-          generatedResult.innerHTML += "</table>"
-          generatedResult.innerHTML += "</div>"
-          generatedResult.innerHTML += "</br>"
-          generatedResult.innerHTML += "</br>"
+        generatedResult.innerHTML += "<div class="+"feature-content"+">"
+        generatedResult.innerHTML += "<h4><center>" + data.results[randomindex].title + "</center></h4>"
+        generatedResult.innerHTML += "<div class="+"table-responsive"+">"
+        generatedResult.innerHTML += "<table class="+"table"+">"
+        generatedResult.innerHTML += "<tr>"
+        generatedResult.innerHTML += "<td><b>Release Date: </b></td>"
+        generatedResult.innerHTML += data.results[randomindex].release_date
+        generatedResult.innerHTML += "</br>"
+        generatedResult.innerHTML += "<td><b>Grade: </b></td>"
+        generatedResult.innerHTML += data.results[randomindex].vote_average
+        generatedResult.innerHTML += "</br>"
+        generatedResult.innerHTML += "<td><b>Description: </b></td>"
+        generatedResult.innerHTML += data.results[randomindex].overview
+        generatedResult.innerHTML += "</br>"
+        generatedResult.innerHTML += "</tr>"
+        generatedResult.innerHTML += "</table>"
+        generatedResult.innerHTML += "</div>"
+        generatedResult.innerHTML += "</br>"
+        generatedResult.innerHTML += "</br>"
         var ri = randomindex;
 
       }
