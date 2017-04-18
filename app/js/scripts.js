@@ -132,7 +132,7 @@ function loadGenres(category, amount){
   var storage_genres = [];
   switch (category) {
     case "films":
-    storage_genres = ["Action", "Adventure", "Anime", "Art house", "Biopic", "Cartoons", "Comedy",   "Crime", "Detective", "Disaster", "Documentary", "Drama", "Family", "Fantasy", "Historical", "Horror", "Musical", "Noir", "Romance", "Sci-Fi", "Sports", "Thriller", "TV shows", "War", "Western"];
+    storage_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Sci-Fi", "Science Fiction", "Thriller", "TV Movie", "War", "Western"];
     break;
     case "music":
     //music genres are dynamically taken from deezer api upon page load, so that images for them can be displayed on buttons instead of icons
@@ -273,11 +273,50 @@ function fetchFilmByGenre(filmGenre){
   //document.getElementById("generatedResult").innerHTML = '<p>Film!!! - ' + filmGenre + '</p>';
   document.getElementById("generatedResult").innerHTML = '';
   var randomzz = Math.floor((Math.random() * 100) + 1);
-
+  if (filmGenre = "War") {
+    genrenumber = '10752';
+} else if (filmGenre = "Action") {
+    genrenumber = '28';
+    } else if (filmGenre = "Adventure") {
+    genrenumber = '12';
+    } else if (filmGenre = "Animation") {
+    genrenumber = '16';
+    } else if (filmGenre = "Comedy") {
+    genrenumber = '35';
+    } else if (filmGenre = "Crime") {
+    genrenumber = '80';
+    } else if (filmGenre = "Documentary") {
+    genrenumber = '99';
+    } else if (filmGenre = "Drama") {
+    genrenumber = '18';
+    } else if (filmGenre = "Family") {
+    genrenumber = '10751';
+    } else if (filmGenre = "Fantasy") {
+    genrenumber = '14';
+    } else if (filmGenre = "History") {
+    genrenumber = '36';
+    } else if (filmGenre = "Horror") {
+    genrenumber = '27';
+    } else if (filmGenre = "Music") {
+    genrenumber = '10402';
+    } else if (filmGenre = "Mystery") {
+    genrenumber = '9648';
+    } else if (filmGenre = "Romance") {
+    genrenumber = '10749';
+    } else if (filmGenre = "Science Fiction") {
+    genrenumber = '878';
+    } else if (filmGenre = "TV Movie") {
+    genrenumber = '10770';
+    } else if (filmGenre = "Thriller") {
+    genrenumber = '53';
+} else {
+    genrenumber = '37';
+}
+//alert(filmGenre);
   
 
   $.ajax({
-    url: "https://api.themoviedb.org/3/movie/popular?page="+ randomzz +"&language=en-US&api_key=9c0081be84efec2670ae12b04e837e62",
+    url: "https://api.themoviedb.org/3/genre/"+ genrenumber +"/movies?sort_by=created_at.desc&include_adult=false&language=en-US&api_key=9c0081be84efec2670ae12b04e837e62",
     dataType: "json",
 
     success: function(data) {
@@ -298,6 +337,9 @@ function fetchFilmByGenre(filmGenre){
         generatedResult.innerHTML += "</br>"
         generatedResult.innerHTML += "<td><b>Grade: </b></td>"
         generatedResult.innerHTML += data.results[randomindex].vote_average
+        generatedResult.innerHTML += "</br>"
+        generatedResult.innerHTML += "<td><b>Genres: </b></td>"
+        generatedResult.innerHTML += data.results[randomindex].genre_ids
         generatedResult.innerHTML += "</br>"
         generatedResult.innerHTML += "<td><b>Description: </b></td>"
         generatedResult.innerHTML += data.results[randomindex].overview
