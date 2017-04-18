@@ -273,46 +273,68 @@ function fetchFilmByGenre(filmGenre){
   //document.getElementById("generatedResult").innerHTML = '<p>Film!!! - ' + filmGenre + '</p>';
   document.getElementById("generatedResult").innerHTML = '';
   var randomzz = Math.floor((Math.random() * 100) + 1);
-  if (filmGenre = "War") {
-    genrenumber = '10752';
-} else if (filmGenre = "Action") {
-    genrenumber = '28';
-    } else if (filmGenre = "Adventure") {
-    genrenumber = '12';
-    } else if (filmGenre = "Animation") {
-    genrenumber = '16';
-    } else if (filmGenre = "Comedy") {
-    genrenumber = '35';
-    } else if (filmGenre = "Crime") {
-    genrenumber = '80';
-    } else if (filmGenre = "Documentary") {
-    genrenumber = '99';
-    } else if (filmGenre = "Drama") {
-    genrenumber = '18';
-    } else if (filmGenre = "Family") {
-    genrenumber = '10751';
-    } else if (filmGenre = "Fantasy") {
-    genrenumber = '14';
-    } else if (filmGenre = "History") {
-    genrenumber = '36';
-    } else if (filmGenre = "Horror") {
-    genrenumber = '27';
-    } else if (filmGenre = "Music") {
-    genrenumber = '10402';
-    } else if (filmGenre = "Mystery") {
-    genrenumber = '9648';
-    } else if (filmGenre = "Romance") {
-    genrenumber = '10749';
-    } else if (filmGenre = "Science Fiction") {
-    genrenumber = '878';
-    } else if (filmGenre = "TV Movie") {
-    genrenumber = '10770';
-    } else if (filmGenre = "Thriller") {
-    genrenumber = '53';
-} else {
-    genrenumber = '37';
-}
-//alert(filmGenre);
+  var genrenumber = "0";
+
+
+  switch(filmGenre){
+      case "War":
+          genrenumber = '10752';
+          break;
+      case "Action":
+          genrenumber = '28';
+          break;
+      case "Adventure":
+          genrenumber = '12';
+          break;
+      case "Animation":
+          genrenumber = '16';
+          break;
+      case "Comedy":
+          genrenumber = '35';
+          break;
+      case "Crime":
+          genrenumber = '80';
+          break;
+      case "Documentary":
+          genrenumber = '99';
+          break;
+      case "Drama":
+          genrenumber = '18';
+          break;
+      case "Family":
+          genrenumber = '10751';
+          break;
+      case "Fantasy":
+          genrenumber = '14';
+          break;
+      case "History":
+          genrenumber = '36';
+          break;
+      case "Horror":
+          genrenumber = '27';
+          break;
+      case "Music":
+          genrenumber = '10402';
+          break;
+      case "Mystery":
+          genrenumber = '9648';
+          break;
+      case "Romance":
+          genrenumber = '10749';
+          break;
+      case "Science Fiction":
+          genrenumber = '878';
+          break;
+      case "TV Movie":
+          genrenumber = '10770';
+          break;
+      case "Thriller":
+          genrenumber = '53';
+          break;
+  }
+
+
+alert(filmGenre); // I LEFT THE DEBUG ON
   
 
   $.ajax({
