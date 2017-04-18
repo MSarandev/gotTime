@@ -132,7 +132,7 @@ function loadGenres(category, amount){
   var storage_genres = [];
   switch (category) {
     case "films":
-    storage_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Sci-Fi", "Science Fiction", "Thriller", "TV Movie", "War", "Western"];
+    storage_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "TV Movie", "War", "Western"];
     break;
     case "music":
     //music genres are dynamically taken from deezer api upon page load, so that images for them can be displayed on buttons instead of icons
@@ -330,6 +330,9 @@ function fetchFilmByGenre(filmGenre){
           break;
       case "Thriller":
           genrenumber = '53';
+          break;
+      case "Western":
+          genrenumber = '37';
           break;
   }
 
