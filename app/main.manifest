@@ -1,12 +1,16 @@
 CACHE MANIFEST
-#18/04 v. 1.0.1
+#18/04 v. 1.0.7
 
-/css/style.css
-/images/avatar.png
-/images/background.jpg
-/images/david.jpg
-/images/Ilja.jpg
-/images/iljaphoto.jpg
-/images/jiri.jpg
-/images/max.jpg
-/images/scripts.js
+images/avatar.png
+images/background.jpg
+images/david.jpg
+images/Ilja.jpg
+images/iljaphoto.jpg
+images/jiri.jpg
+images/max.jpg
+
+NETWORK:
+login.asp
+
+FALLBACK:
+index.html
