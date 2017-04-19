@@ -230,7 +230,7 @@ function clickMeBooks(){
   //all values need to be stored in an array
   for (var i=0; i<5; i++) {
     appButtons[i].innerHTML =
-    '<a href="#books-modal"" data-toggle="modal" onclick="fetchBookByGenre(selected_genres[' + i + '])">' +
+    '<a href="#books-modal" data-toggle="modal" onclick="fetchBookByGenre(selected_genres[' + i + '])">' +
     '<i class="' + icons[i] + '"></i>' +
     '<p>' + selected_genres[i] + '</p>' +
     '</a>';
@@ -337,7 +337,7 @@ function fetchFilmByGenre(filmGenre){
   }
 
 
-alert(filmGenre); // I LEFT THE DEBUG ON
+//alert(filmGenre); // I LEFT THE DEBUG ON
   
 
   $.ajax({
