@@ -10,7 +10,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-
+#logo_main_text:hover{
+    color: #2aabd2;
+    cursor: pointer;
+}
 
 a,
 a:hover,
