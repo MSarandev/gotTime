@@ -104,12 +104,12 @@ function makeAboutUsButton(htmlElement){
 //restoring main buttons to initial state; here you can change order of buttons by editing array's element number
 //currently set to match original order
 function refreshMainButtons(){
-  makeAboutUsButton(appButtons[2]);
+  makeAboutUsButton(appButtons[5]);
   makeBooksButton(appButtons[3]);
   makeFilmsButton(appButtons[0]);
   makeMusicButton(appButtons[1]);
-  makeRandomButton(appButtons[5]);
-  makeVideosButton(appButtons[4]);
+  makeRandomButton(appButtons[4]);
+  makeVideosButton(appButtons[2]);
 }
 
 //BACK button - restores app's main button's initial state upon click
@@ -364,7 +364,8 @@ function fetchFilmByGenre(filmGenre){
         generatedResult.innerHTML += data.results[randomindex].vote_average
         generatedResult.innerHTML += "</br>"
         generatedResult.innerHTML += "<td><b>Genres: </b></td>"
-        generatedResult.innerHTML += data.results[randomindex].genre_ids
+          generatedResult.innerHTML += filmGenre
+        //generatedResult.innerHTML += data.results[randomindex].genre_ids
         generatedResult.innerHTML += "</br>"
         generatedResult.innerHTML += "<td><b>Description: </b></td>"
         generatedResult.innerHTML += data.results[randomindex].overview
