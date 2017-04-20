@@ -573,7 +573,7 @@ function konamiCode() {
 
     // STAR WARS CODE BELOW
     if (enteredCode.slice(-4).toString() == "83,84,65,82") {
-        window.location += "http://www.gottime.azurewebsites.net/app/extras/star.html";
+        window.location = "http://gottime.azurewebsites.net/app/extras/star.html";
         enteredCode = []; //dump code
     }
 
