@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var el = $("#this1"); //def
+
+            for(var x = -20; x<=100; x+=6){
+                el.animate({
+                    marginLeft : x.toString() + "%" //push to right
+                }, 900);
+            }
+
+            // rotate
+            el.promise().done(function() {
+                // animation complete, rotate
+                el.css({"transform":"rotateY(180deg)"});
+
+                // push to left
+                for(var i = 100; i>=-40; i+=-6){
+                    el.animate({
+                        marginLeft : i.toString() + "%" //push to left
+                    }, 900);
+                }
+
+                // FINAL
+                el.promise().done(function(){
+                    $(document.body).animate({
+                        opacity: 1
+                    }, 2000, function() {
+                        // Animation complete.
+                    });
+
+                    $(document.body).promise().done(function(){
+
+                    });
+                });
+            });
+        });
+    </script>
+
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Russo+One';
+
+        body, html{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        #this1{
+            display: flex;
+            flex-direction:column;
+            margin-left: 100%;
+        }
+
+        /*
+            STAR WARS TEXT BY: https://css-tricks.com/snippets/css/star-wars-crawl-text/
+        */
+
+        .star-wars {
+            /* Flexbox to center the entire element on the screen */
+            display: flex;
+            justify-content: center;
+            /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+            height: 800px;
+            /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+            perspective: 400px;
+            /* The rest is totally up to personal styling preferences */
+            color: #feda4a;
+            font-family: 'Russo One','Pathway Gothic One', sans-serif;
+            font-size: 500%;
+            font-weight: 600;
+            letter-spacing: 6px;
+            line-height: 150%;
+            text-align: center;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+        .crawl {
+            /* Position the element so we can adjust the top property in the animation */
+            position: relative;
+            /* Making sure the text is fully off the screen at the start and end of the animation */
+            top: -100px;
+            /* Defines the skew origin at the very center when we apply transforms on the animation */
+            transform-origin: 50% 100%;
+        }
+        /* We're calling this animation "crawl" */
+        @keyframes crawl {
+            0% {
+                /* The element starts below the screen */
+                top: 0;
+                /* Rotate the text 20 degrees but keep it close to the viewer */
+                transform: rotateX(20deg) translateZ(0);
+            }
+            100% {
+                /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+                top: -6000px;
+                /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+                transform: rotateX(25deg) translateZ(-2500px);
+            }
+        }
+        .crawl {
+            /* Position the element so we can adjust the top property in the animation */
+            position: relative;
+            /* Defines the skew origin at the very center when we apply transforms on the animation */
+            transform-origin: 50% 100%;
+            /* Adds the crawl animation, which plays for one minute */
+            animation: crawl 60s linear;
+        }
+    </style>
+</head>
+<body style="background-color: #09E7DA">
+    <section class="star-wars">
+        <div class="crawl">
+
+            <div class="title">
+                <p>Episode IV</p>
+                <h1>A New Hope</h1>
+            </div>
+
+            <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.</p>
+            <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet.</p>
+            <p>Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy…</p>
+
+        </div>
+    </section>
+    <img id="this1" src="https://cdn.dribbble.com/users/1539273/screenshots/3217588/c3po.gif">
+</body>
+</html>
