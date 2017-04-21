@@ -509,7 +509,7 @@ function fetchVideoByGenre(videoGenre){
                     vidTitle+
                     '</br>' +
                     // define the iframe and plug src
-                    '<iframe src="'+storedURLs[rand_num]+'" width="inherit%" height="600px"></iframe>' +
+                    '<iframe class="vid_frame_1" src="'+storedURLs[rand_num]+'" width="800px" height="600px"></iframe>' +
                     '</span>' + '</br></br>');
 
                 // get new rand. var

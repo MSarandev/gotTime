@@ -91,6 +91,11 @@ footer{
     justify-content: center;
     align-items: flex-start;
 }
+
+.vid_frame_1{
+    width: 800px;
+    height: 600px;
+}
 /* Edits end */
 a,
 a:hover,
