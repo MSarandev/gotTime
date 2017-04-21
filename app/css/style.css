@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300);
-@import 'https://fonts.googleapis.com/css?family=Russo+One';
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 body {
     background: url(../images/background.jpg) no-repeat;
@@ -9,16 +9,56 @@ body {
     background-position: 50% 50%;
     font-family: 'Open Sans', sans-serif;
 }
+/* Edits by MAX on 21/04 */
 
-/*
-Modal UI Change MAX 20/04
- */
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-family: 'Orbitron', 'Open Sans', sans-serif;
+}
 
+/* OVERRIDE */
+.copyright{
+    font-family: 'Orbitron', 'Open Sans', sans-serif;
+    background-color: rgba(255,255,255,0.3);
+}
 
+#footer_text{
+    font-family: 'Orbitron', 'Open Sans', sans-serif;
+    color: rgba(255,255,255,0.5);
+}
 
-/*
-Modal UI END
- */
+.col-md-12{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Russo One', 'Pathway Gothic One', sans-serif;
+}
+
+#footer_end{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Russo One', 'Pathway Gothic One', sans-serif;
+}
+
+.info_img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.info_img:hover{
+    opacity: 0.5;
+}
+
+.info_link{
+    text-decoration: none;
+}
 
 #logo_main_text:hover{
     color: #2aabd2;
@@ -293,6 +333,8 @@ and (max-width : 1199px) {
 	background-color: #FF432E;
 }
 
+/*
+DEFINITION MOVED TO TOP
 
 .copyright {
     background: rgba( 0, 0, 0, 0.7);
@@ -300,7 +342,7 @@ and (max-width : 1199px) {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
+*/
 
 
 /**** Start Modal Section ****/
