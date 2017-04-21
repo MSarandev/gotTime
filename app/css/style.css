@@ -84,6 +84,13 @@ footer{
     background-color: rgba(145, 187, 255, 1);
 }
 
+
+#about_us_cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 /* Edits end */
 a,
 a:hover,
