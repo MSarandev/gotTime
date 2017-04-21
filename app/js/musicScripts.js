@@ -1,27 +1,7 @@
 //Deezer API specific functions for gotTime webapp
 //Vladimir R. - 1606883@rgu.ac.uk
-//17/4/2017
+//21/4/2017
 
-
-//array containing genres taken from deezer api (should be ~20 genres)
-var deezerMusicGenres = [];
-
-//function gets list of music genres from api and stores them in deezerMusicGenres array as objects
-function getDeezerMusicGenres(){
-	deezerMusicGenres = [];
-	$.ajax({
-		url: "http://api.deezer.com/genre&output=jsonp&callback=JSONP_CALLBACK",
-		jsonp: "callback",
-		dataType: "jsonp",
-		data: {format: "json"},
-		success: function(response) {
-			for (var i=1; i<response.data.length; i++){
-				deezerMusicGenres.push(response.data[i]);
-				//console.log("Genre: " + response.data[i].name + ", ID: " + response.data[i].id);
-			}
-		} //parameter success end
-	}); //ajax end
-} //function getDeezerMusicGenres end
 
 
 //TL;DR -- Getting song from Deezer: Genre -> Artist -> Album -> Song

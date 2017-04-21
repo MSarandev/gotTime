@@ -1,4 +1,4 @@
-// Last edit - MAX 18/04
+// Last edit - vlad 21/04
 // Contents:
 // Books API linked to btn genre
 // Books display in modal
@@ -7,7 +7,6 @@
 // Youtube videos pulled based on btn genre
 
 
-//Last edited on 18/04/2017 @ 0000 by Vlad
 //Contents:
 //Line 13 - 114: variables and functions for "fixed" button generation (category buttons, about us, back)
 //Line 116 - 169: variables and functions for genre generation
@@ -135,10 +134,9 @@ function loadGenres(category, amount){
     storage_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
     break;
     case "music":
-    //music genres are dynamically taken from deezer api upon page load, so that images for them can be displayed on buttons instead of icons
-    //deezerMusicGenres variable as well as getDeezerMusicGenres function are located in musicScripts.js
-    //stores array of objects; used keys - name, id, picture_small
-    storage_genres = deezerMusicGenres;
+    //stores array of objects; used keys - name, id
+    storage_genres = [
+	{name:"Pop", id:"132"}, {name:"Rap/Hip Hop", id:"116"}, {name:"Rock", id:"152"}, {name:"Dance", id:"113"}, {name:"R&B", id:"165"}, {name:"Alternative", id:"85"}, {name:"Electro", id:"106"}, {name:"Folk", id:"466"}, {name:"Reggae", id:"144"}, {name:"Jazz", id:"129"}, {name:"Country", id:"84"}, {name:"Classical", id:"98"}, {name:"Films/Games", id:"173"}, {name:"Metal", id:"464"}, {name:"Soul & Funk", id:"169"}, {name:"African Music", id:"2"}, {name:"Asian Music", id:"16"}, {name:"Blues", id:"153"}, {name:"Brazilian Music", id:"75"}, {name:"Indian Music", id:"81"}, {name:"Kids", id:"95"}, {name:"Latin Music", id:"197"}];
     break;
     case "books":
     storage_genres = ["Biography", "Comedy", "Drama", "Fantasy", "Horror", "Non-fiction", "Poetry",   "Romance novel", "Satire", "Science Fiction", "Thriller", "Tragedy", "Tragicomedy"];
@@ -193,7 +191,7 @@ function clickMeFilms(){
   //all values need to be stored in an array
   for (var i=0; i<5; i++) {
     appButtons[i].innerHTML =
-    '<a href="#generated-modal"" data-toggle="modal" onclick="fetchFilmByGenre(selected_genres[' + i + '])">' +
+    '<a href="#generated-modal" data-toggle="modal" onclick="fetchFilmByGenre(selected_genres[' + i + '])">' +
     '<i class="' + icons[i] + '"></i>' +
     '<p>' + selected_genres[i] + '</p>' +
     '</a>';
@@ -202,7 +200,6 @@ function clickMeFilms(){
   makeBackButton(appButtons[5]);
 }
 
-//TODO: replace genre images to generic icons?
 // MUSIC
 function clickMeMusic(){
   //get random genres
@@ -212,8 +209,8 @@ function clickMeMusic(){
   //all values need to be stored in an array
   for (var i=0; i<5; i++) {
     appButtons[i].innerHTML =
-    '<a href="#generated-modal"" data-toggle="modal" onclick="fetchMusicByGenre(selected_genres[' + i + '])">' +
-    '<img src="' + selected_genres[i].picture_small + '">' +
+    '<a href="#generated-modal" data-toggle="modal" onclick="fetchMusicByGenre(selected_genres[' + i + '])">' +
+    '<i class="' + icons[i] + '"></i>' +
     '<p>' + selected_genres[i].name + '</p>' +
     '</a>';
   }
@@ -230,7 +227,7 @@ function clickMeBooks(){
   //all values need to be stored in an array
   for (var i=0; i<5; i++) {
     appButtons[i].innerHTML =
-    '<a href="#books-modal" data-toggle="modal" onclick="fetchBookByGenre(selected_genres[' + i + '])">' +
+    '<a href="#generated-modal" data-toggle="modal" onclick="fetchBookByGenre(selected_genres[' + i + '])">' +
     '<i class="' + icons[i] + '"></i>' +
     '<p>' + selected_genres[i] + '</p>' +
     '</a>';
@@ -258,15 +255,13 @@ function clickMeVideo(){
 }
 
 
-//TODO: add functionality to all buttons
 //following four buttons represent actions of pressed genre button, separated by category
 //functions are passed genre to process, so that you can throw inside of them your api specific functions
 //IMPORTANT: this is where the output from apis is happening
 //end container to hold html content is div with id=generatedResult
 
 
-
-
+// last updated on  21/04 by vlad
 //FILM API GOES HERE
 function fetchFilmByGenre(filmGenre){
   //code that runs upon film genre button press
@@ -399,13 +394,12 @@ function fetchMusicByGenre(musicGenre){
 
 
 
-// UPDATED 18/04 @MAX
-// <><><><><><><><><>
+// last updated on 21/04 by vlad
 //BOOK API GOES HERE
 function fetchBookByGenre(bookGenre){
     //code that runs upon book genre button press
     var search = bookGenre;
-    document.getElementById('result').innerHTML = "";
+    document.getElementById('generatedResult').innerHTML = "";
     var randomz = Math.floor((Math.random() * 100) + 1);
 
     $.ajax({
@@ -415,64 +409,64 @@ function fetchBookByGenre(bookGenre){
       success: function(data) {
         for(i = 0; i < 2; i++){
           try {
-              result.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
-              result.innerHTML += "<div class=" + "feature-content" + ">"
-              result.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
-              result.innerHTML += "<div class=" + "table-responsive" + ">"
-              result.innerHTML += "<table class=" + "table" + ">"
-              result.innerHTML += "<tr>"
-              result.innerHTML += "<td><b>Publication Date: </b></td>"
-              result.innerHTML += data.items[i].volumeInfo.publishedDate
-              result.innerHTML += "</br>"
-              result.innerHTML += "<td><b>Categories: </b></td>"
-              result.innerHTML += data.items[i].volumeInfo.categories
-              result.innerHTML += "</br>"
-              result.innerHTML += "<td><b>Pages: </b></td>"
-              result.innerHTML += data.items[i].volumeInfo.pageCount
-              result.innerHTML += "</br>"
-              result.innerHTML += "<td><b>Description: </b></td>"
-              result.innerHTML += data.items[i].volumeInfo.description
-              result.innerHTML += "</br>"
-              result.innerHTML += "</tr>"
-              result.innerHTML += "</table>"
-              result.innerHTML += "</div>"
-              result.innerHTML += "</br>"
+              generatedResult.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
+              generatedResult.innerHTML += "<div class=" + "feature-content" + ">"
+              generatedResult.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
+              generatedResult.innerHTML += "<div class=" + "table-responsive" + ">"
+              generatedResult.innerHTML += "<table class=" + "table" + ">"
+              generatedResult.innerHTML += "<tr>"
+              generatedResult.innerHTML += "<td><b>Publication Date: </b></td>"
+              generatedResult.innerHTML += data.items[i].volumeInfo.publishedDate
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "<td><b>Categories: </b></td>"
+              generatedResult.innerHTML += data.items[i].volumeInfo.categories
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "<td><b>Pages: </b></td>"
+              generatedResult.innerHTML += data.items[i].volumeInfo.pageCount
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "<td><b>Description: </b></td>"
+              generatedResult.innerHTML += data.items[i].volumeInfo.description
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "</tr>"
+              generatedResult.innerHTML += "</table>"
+              generatedResult.innerHTML += "</div>"
+              generatedResult.innerHTML += "</br>"
               // defaults the button to a link
               if ("undefined" === typeof data.items[i].saleInfo.buyLin) {
-                  result.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+                  generatedResult.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
               } else {
-                  result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+                  generatedResult.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
               }
-              result.innerHTML += "</br>"
-              result.innerHTML += "</div>"
-              result.innerHTML += "</br>"
-              result.innerHTML += "</br>"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "</div>"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "</br>"
           }catch (er12){
-              result.innerHTML += "<center><img src='images/iljaphoto.jpg' width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
-              result.innerHTML += "<div class=" + "feature-content" + ">"
-              result.innerHTML += "<h4>N/A</h4>"
-              result.innerHTML += "<div class=" + "table-responsive" + ">"
-              result.innerHTML += "<table class=" + "table" + ">"
-              result.innerHTML += "<tr>"
-              result.innerHTML += "<td><b>Publication Date: </b></td>"
-              result.innerHTML += "N/A"
-              result.innerHTML += "</br>"
-              result.innerHTML += "<td><b>Categories: </b></td>"
-              result.innerHTML += "N/A"
-              result.innerHTML += "</br>"
-              result.innerHTML += "<td><b>Pages: </b></td>"
-              result.innerHTML += "N/A"
-              result.innerHTML += "</br>"
-              result.innerHTML += "<td><b>Description: </b></td>"
-              result.innerHTML += "N/A"
-              result.innerHTML += "</br>"
-              result.innerHTML += "</tr>"
-              result.innerHTML += "</table>"
-              result.innerHTML += "</div>"
-              result.innerHTML += "</br>"
-              result.innerHTML += "</div>"
-              result.innerHTML += "</br>"
-              result.innerHTML += "</br>"
+              generatedResult.innerHTML += "<center><img src='images/iljaphoto.jpg' width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
+              generatedResult.innerHTML += "<div class=" + "feature-content" + ">"
+              generatedResult.innerHTML += "<h4>N/A</h4>"
+              generatedResult.innerHTML += "<div class=" + "table-responsive" + ">"
+              generatedResult.innerHTML += "<table class=" + "table" + ">"
+              generatedResult.innerHTML += "<tr>"
+              generatedResult.innerHTML += "<td><b>Publication Date: </b></td>"
+              generatedResult.innerHTML += "N/A"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "<td><b>Categories: </b></td>"
+              generatedResult.innerHTML += "N/A"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "<td><b>Pages: </b></td>"
+              generatedResult.innerHTML += "N/A"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "<td><b>Description: </b></td>"
+              generatedResult.innerHTML += "N/A"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "</tr>"
+              generatedResult.innerHTML += "</table>"
+              generatedResult.innerHTML += "</div>"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "</div>"
+              generatedResult.innerHTML += "</br>"
+              generatedResult.innerHTML += "</br>"
           }
 
         }
@@ -575,7 +569,7 @@ function randomButton(){
     loadGenres("videos", 1);
     fetchVideoByGenre(selected_genres[0]);
     break;
-    //in case of random button being incorrect will output a message in console and return false
+    //in case of random number being incorrect this will output a message in console and return false
     default:
     console.log("Wrong category given: " + randomCategory);
     return false;
@@ -687,7 +681,3 @@ function konamiCode() {
   }); //key press actions end
 } //function konamiCode end
 
-//WIP function - FOR TESTING (duh!) - TO BE REMOVED
-function test(){
-  console.log("Test function has been triggered");
-}

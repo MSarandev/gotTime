@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Last Edited by Max on 21/4/2017 @ 0000-->
+<!-- Last Edited by vlad on 21/4/2017 @ 0000-->
 
 <head>
   <meta charset="utf-8">
@@ -29,8 +29,6 @@
   <!-- YouTube specific js below -->
   <script src="js/auth.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady">  </script>
-  <!-- TODO: move script to a separate file -->
-  <!-- Books search moved @MAX 18/04 -->
   <script src="js/musicScripts.js"></script>
   <!-- <><><> -->
 </head>
@@ -39,7 +37,7 @@
 <!-- starting to read user's pressed keys as soon as page loads - needed for konami code -->
 <!-- getting main button containers and putting them into array - needed for button updates -->
 <!-- getting list of music genres from deezer - needed for genre image display -->
-<body onload="konamiCode(); getHtmlButtons(); getDeezerMusicGenres();">
+<body onload="konamiCode(); getHtmlButtons();">
   <!-- Initial Webpage content below -->
 
   <!-- Header START-->
@@ -154,34 +152,8 @@
 
   <!--Modal windows generated below:-->
   <!--<><><><><><><><><><><><><><><>-->
-  <!--Books modal container - left for ilja to transfer generated content into common modal container-->
   <!--About us modal container-->
   <!--Generated API content modal container - will be populated with data from the APIs-->
-
-
-  <!-- TODO: books modal to be removed -->
-  <!-- Books modal START -->
-  <div class="section-modal modal fade" id="books-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-      <div class="close-modal" data-dismiss="modal">
-        <div class="lr">
-          <div class="rl">
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div id="result">
-            <!-- Removed the searchbar @MAX 18/04 -->
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <!-- Books modal END -->
-
 
 
   <!-- About Us modal START -->
@@ -285,7 +257,7 @@
   <!-- About Us modal END -->
 
   <!-- Generated API content modal START -->
-  <div class="section-modal modal fade" id="generated-modal" tabindex="-1" role="dialog" aria-hidden="true" onkeypress="test()">
+  <div class="section-modal modal fade" id="generated-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
       <!-- modal window close button -->
       <div class="close-modal" data-dismiss="modal" onclick="document.getElementById('generatedResult').innerHTML = ''">
