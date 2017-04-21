@@ -132,7 +132,7 @@ function loadGenres(category, amount){
   var storage_genres = [];
   switch (category) {
     case "films":
-    storage_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "TV Movie", "War", "Western"];
+    storage_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"];
     break;
     case "music":
     //music genres are dynamically taken from deezer api upon page load, so that images for them can be displayed on buttons instead of icons
@@ -325,9 +325,6 @@ function fetchFilmByGenre(filmGenre){
       case "Science Fiction":
           genrenumber = '878';
           break;
-      case "TV Movie":
-          genrenumber = '10770';
-          break;
       case "Thriller":
           genrenumber = '53';
           break;
@@ -417,38 +414,66 @@ function fetchBookByGenre(bookGenre){
 
       success: function(data) {
         for(i = 0; i < 2; i++){
-          result.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail +" width=" + "189"+" height="+"255"+" alt="+"lorem"+"></center>"
-          result.innerHTML += "<div class="+"feature-content"+">"
-          result.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
-          result.innerHTML += "<div class="+"table-responsive"+">"
-          result.innerHTML += "<table class="+"table"+">"
-          result.innerHTML += "<tr>"
-          result.innerHTML += "<td><b>Publication Date: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.publishedDate
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Categories: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.categories
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Pages: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.pageCount
-          result.innerHTML += "</br>"
-          result.innerHTML += "<td><b>Description: </b></td>"
-          result.innerHTML += data.items[i].volumeInfo.description
-          result.innerHTML += "</br>"
-          result.innerHTML += "</tr>"
-          result.innerHTML += "</table>"
-          result.innerHTML += "</div>"
-          result.innerHTML += "</br>"
-            // defaults the button to a link
-            if ("undefined" === typeof data.items[i].saleInfo.buyLin) {
-                result.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
-            }else{
-                result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
-            }
-          result.innerHTML += "</br>"
-          result.innerHTML += "</div>"
-          result.innerHTML += "</br>"
-          result.innerHTML += "</br>"
+          try {
+              result.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
+              result.innerHTML += "<div class=" + "feature-content" + ">"
+              result.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
+              result.innerHTML += "<div class=" + "table-responsive" + ">"
+              result.innerHTML += "<table class=" + "table" + ">"
+              result.innerHTML += "<tr>"
+              result.innerHTML += "<td><b>Publication Date: </b></td>"
+              result.innerHTML += data.items[i].volumeInfo.publishedDate
+              result.innerHTML += "</br>"
+              result.innerHTML += "<td><b>Categories: </b></td>"
+              result.innerHTML += data.items[i].volumeInfo.categories
+              result.innerHTML += "</br>"
+              result.innerHTML += "<td><b>Pages: </b></td>"
+              result.innerHTML += data.items[i].volumeInfo.pageCount
+              result.innerHTML += "</br>"
+              result.innerHTML += "<td><b>Description: </b></td>"
+              result.innerHTML += data.items[i].volumeInfo.description
+              result.innerHTML += "</br>"
+              result.innerHTML += "</tr>"
+              result.innerHTML += "</table>"
+              result.innerHTML += "</div>"
+              result.innerHTML += "</br>"
+              // defaults the button to a link
+              if ("undefined" === typeof data.items[i].saleInfo.buyLin) {
+                  result.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+              } else {
+                  result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+              }
+              result.innerHTML += "</br>"
+              result.innerHTML += "</div>"
+              result.innerHTML += "</br>"
+              result.innerHTML += "</br>"
+          }catch (er12){
+              result.innerHTML += "<center><img src='images/iljaphoto.jpg' width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
+              result.innerHTML += "<div class=" + "feature-content" + ">"
+              result.innerHTML += "<h4>N/A</h4>"
+              result.innerHTML += "<div class=" + "table-responsive" + ">"
+              result.innerHTML += "<table class=" + "table" + ">"
+              result.innerHTML += "<tr>"
+              result.innerHTML += "<td><b>Publication Date: </b></td>"
+              result.innerHTML += "N/A"
+              result.innerHTML += "</br>"
+              result.innerHTML += "<td><b>Categories: </b></td>"
+              result.innerHTML += "N/A"
+              result.innerHTML += "</br>"
+              result.innerHTML += "<td><b>Pages: </b></td>"
+              result.innerHTML += "N/A"
+              result.innerHTML += "</br>"
+              result.innerHTML += "<td><b>Description: </b></td>"
+              result.innerHTML += "N/A"
+              result.innerHTML += "</br>"
+              result.innerHTML += "</tr>"
+              result.innerHTML += "</table>"
+              result.innerHTML += "</div>"
+              result.innerHTML += "</br>"
+              result.innerHTML += "</div>"
+              result.innerHTML += "</br>"
+              result.innerHTML += "</br>"
+          }
 
         }
       },
@@ -509,7 +534,7 @@ function fetchVideoByGenre(videoGenre){
                     vidTitle+
                     '</br>' +
                     // define the iframe and plug src
-                    '<iframe class="vid_frame_1" src="'+storedURLs[rand_num]+'" width="800px" height="600px"></iframe>' +
+                    '<iframe src="'+storedURLs[rand_num]+'" width="800px" height="600px"></iframe>' +
                     '</span>' + '</br></br>');
 
                 // get new rand. var
