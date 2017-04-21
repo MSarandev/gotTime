@@ -385,6 +385,7 @@ function fetchMusicByGenre(musicGenre){
   if (musicGenre.id != "") {
     //FOR TESTING
     console.log("Genre: " + musicGenre.name + ", Deezer ID: " + musicGenre.id);
+	document.getElementById('generatedResult').innerHTML = '';
     getDeezerSongByGenre(musicGenre.id);
   } else {
     console.log("Selected genre (" + musicGenre.name + ") has no Deezer ID assigned");
@@ -665,8 +666,13 @@ function konamiCode() {
     // "ilja" - fixes everything on web page
     if (enteredCode.slice(-4).toString() == "73,76,74,65") {
       console.log('Everything is designed by Ilja Magdenko (with little help of George Clooney)');
-      $("body").html('<div class="area"><img src="http://www.newyorker.com/wp-content/uploads/2008/04/080414_r17095_p646-320.jpg" height="300"><br><h1>⚠ Ilja Magdenko ⚠</h1><br><p>Desing By Ilja. and bla bla bla..</p></div>');
+      $("body").html('<div class="area">' + 
+	  '<img src="http://www.newyorker.com/wp-content/uploads/2008/04/080414_r17095_p646-320.jpg" height="300">' + 
+	  '<br><h1>⚠ Ilja Magdenko ⚠</h1><br><p>Desing By Ilja. and bla bla bla..</p></div>');
       $("img").animate({'height':'1000', 'align':'middle'}, 50000);
+	  var tune = new Audio('sounds/ilja.mp3');
+	  tune.loop = true;
+	  tune.play();
       enteredCode = [];
     }
 
@@ -679,12 +685,13 @@ function konamiCode() {
 	// "pony" - puts 15 unicorns and rainbows onto web page
     if (enteredCode.slice(-4).toString() == "80,79,78,89") {
 		$.getScript("http://www.cornify.com/js/cornify.js", function(){
+			cornify_count = 0;
 			for (var i=0; i<15; i++) {
 				cornify_add();
 			}
 		});
 		console.log("success");
-        enteredCode = []; //dump code
+        enteredCode = [];
     }
 	
   }); //key press actions end

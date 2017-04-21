@@ -76,4 +76,17 @@ function getDeezerSongByAlbum(albumID) {
 //displaying iframe with selected song - iframe paramters can be tweaked
 function outputDeezerSong(songID){
 	document.getElementById('generatedResult').innerHTML = '<iframe scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?format=square&autoplay=true&playlist=false&width=300&height=300&color=e0d818&layout=dark&size=medium&type=tracks&id=' + songID + '&app_id=1" width="300" height="300"></iframe>';
+	//getting song details to print out on page
+	$.ajax({
+		url: "http://api.deezer.com/track/" + songID + "&output=jsonp&callback=JSONP_CALLBACK",
+		jsonp: "callback",
+		dataType: "jsonp",
+		data: {format: "json"},
+		success: function(response) {
+			//console.log("Track ID: " + response.id);
+			document.getElementById('generatedResult').innerHTML += '<br><b><p>Artist: </b>' + response.artist.name + '</p>';
+			document.getElementById('generatedResult').innerHTML += '<b><p>Album: </b>' + response.album.title + '</p>';
+			document.getElementById('generatedResult').innerHTML += '<b><p>Track: </b>' + response.title + '</p>';
+		} //parameter success end
+	}); //ajax end
 }

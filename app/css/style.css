@@ -14,26 +14,29 @@ body {
 
 #sub_header{
     font-family: "Russo One", 'Open Sans', sans-serif;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.5);
 }
 
 footer{
-    position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
-    font-family: 'Orbitron', 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#generatedResult {
+	text-align: center;
 }
 
 /* OVERRIDE */
 .copyright{
-    font-family: 'Orbitron', 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: rgba(255,255,255,0.3);
 }
 
 #footer_text{
-    font-family: 'Orbitron', 'Open Sans', sans-serif;
-    color: rgba(255,255,255,0.5);
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(255,255,255,0.8);
 }
 
 .col-md-12{
@@ -50,6 +53,7 @@ footer{
     justify-content: center;
     align-content: center;
     font-family: 'Russo One', 'Pathway Gothic One', sans-serif;
+	margin-bottom: 15px;
 }
 
 .info_img{
