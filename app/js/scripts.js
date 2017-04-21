@@ -578,7 +578,6 @@ function randomButton(){
 
 //function for executing konami code on page; starts as soon as page's body loads
 //Konami code - up, up, down, down, left, rigth, left, right, B, A
-//code below is "ilja" (not case sensitive)
 function konamiCode() {
   //array variable for storing input
   var enteredCode = [];
@@ -663,11 +662,10 @@ function konamiCode() {
       console.log("KONAMI CODE! - Now try typing team member's name");
       enteredCode = [];
     }
-    //checking if input matches 2nd code
+    // "ilja" - fixes everything on web page
     if (enteredCode.slice(-4).toString() == "73,76,74,65") {
       console.log('Everything is designed by Ilja Magdenko (with little help of George Clooney)');
-      $("body").html('<img src="http://www.newyorker.com/wp-content/uploads/2008/04/080414_r17095_p646-320.jpg" height="300">' +
-        "<br><h1>Ilja Magdenko</h1><br><p>Desing By Ilja. and bla bla bla..</p>");
+      $("body").html('<div class="area"><img src="http://www.newyorker.com/wp-content/uploads/2008/04/080414_r17095_p646-320.jpg" height="300"><br><h1>⚠ Ilja Magdenko ⚠</h1><br><p>Desing By Ilja. and bla bla bla..</p></div>');
       $("img").animate({'height':'1000', 'align':'middle'}, 50000);
       enteredCode = [];
     }
@@ -678,6 +676,17 @@ function konamiCode() {
         enteredCode = []; //dump code
     }
 
+	// "pony" - puts 15 unicorns and rainbows onto web page
+    if (enteredCode.slice(-4).toString() == "80,79,78,89") {
+		$.getScript("http://www.cornify.com/js/cornify.js", function(){
+			for (var i=0; i<15; i++) {
+				cornify_add();
+			}
+		});
+		console.log("success");
+        enteredCode = []; //dump code
+    }
+	
   }); //key press actions end
 } //function konamiCode end
 
