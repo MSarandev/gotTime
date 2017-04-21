@@ -364,8 +364,7 @@ function fetchFilmByGenre(filmGenre){
         generatedResult.innerHTML += data.results[randomindex].vote_average
         generatedResult.innerHTML += "</br>"
         generatedResult.innerHTML += "<td><b>Genres: </b></td>"
-          generatedResult.innerHTML += filmGenre
-        //generatedResult.innerHTML += data.results[randomindex].genre_ids
+        generatedResult.innerHTML += filmGenre
         generatedResult.innerHTML += "</br>"
         generatedResult.innerHTML += "<td><b>Description: </b></td>"
         generatedResult.innerHTML += data.results[randomindex].overview
@@ -440,7 +439,11 @@ function fetchBookByGenre(bookGenre){
           result.innerHTML += "</table>"
           result.innerHTML += "</div>"
           result.innerHTML += "</br>"
-          result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+            if ("undefined" === typeof data.items[i].saleInfo.buyLin) {
+                result.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+            }else{
+                result.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+            }
           result.innerHTML += "</br>"
           result.innerHTML += "</div>"
           result.innerHTML += "</br>"
