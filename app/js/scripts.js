@@ -439,6 +439,7 @@ function fetchBookByGenre(bookGenre){
           result.innerHTML += "</table>"
           result.innerHTML += "</div>"
           result.innerHTML += "</br>"
+            // defaults the button to a link
             if ("undefined" === typeof data.items[i].saleInfo.buyLin) {
                 result.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
             }else{
