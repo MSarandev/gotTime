@@ -606,7 +606,7 @@ function konamiCode() {
 
         // push to the body
         $("body").html('<canvas id="c"></canvas>'+
-        '<style>*{margin: 0; padding: 0;}canvas {display: block;}</style>');
+        '<style>*{overflow:hidden;margin: 0; padding: 0;}canvas {display: block;}</style>');
 
         // MAKE IT RAIN
         var c = document.getElementById("c");
