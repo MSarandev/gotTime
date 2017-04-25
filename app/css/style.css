@@ -17,8 +17,6 @@ html {
 	min-height: 100%;
 }
 
-/* Edits by MAX on 21/04 */
-
 #sub_header{
     font-family: "Russo One", 'Open Sans', sans-serif;
     color: rgba(255,255,255,0.5);
@@ -292,8 +290,6 @@ fieldset[disabled] .btn-primary.active {
 
 .menu-item {
     color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
     margin-bottom: 30px;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -305,6 +301,8 @@ fieldset[disabled] .btn-primary.active {
     display: block;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .menu-item a p {
@@ -355,7 +353,7 @@ and (max-width : 991px) {
 and (min-width : 992px) 
 and (max-width : 1199px) {
     
-    .menu-item {
+    .menu-item a {
         padding-top: 15px;
         padding-bottom: 15px;
     }

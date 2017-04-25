@@ -3,7 +3,6 @@
 //21/4/2017
 
 
-
 //TL;DR -- Getting song from Deezer: Genre -> Artist -> Album -> Song
 //for querying deezer, ive decided to use three similar functions, that run in one succession
 //first function gets list of artists of given genre and chooses one
@@ -89,4 +88,4 @@ function outputDeezerSong(songID){
 			document.getElementById('generatedResult').innerHTML += '<b><p>Track: </b>' + response.title + '</p>';
 		} //parameter success end
 	}); //ajax end
-}
+} //function outputDeezerSong end

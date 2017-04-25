@@ -1,21 +1,14 @@
-// Last edit - vlad 21/04
-// Contents:
-// Books API linked to btn genre
-// Books display in modal
-// Books searchbar/button removed
-// Youtube API imported + linked
-// Youtube videos pulled based on btn genre
+// Last edit - vlad 25/04
 
-
-//Contents:
-//Line 13 - 114: variables and functions for "fixed" button generation (category buttons, about us, back)
-//Line 116 - 169: variables and functions for genre generation
-//Line 171 - 250: variables and functions for generating buttons based on selected category and generated genres
-//Line 262: function for FILMS API OUTPUT
-//Line 271: function for MUSIC API OUTPUT
-//Line 288: function for BOOKS API OUTPUT
-//Line 297: function for VIDEOS API OUTPUT
-//Line 306 till end: function for random button; function for konami code
+//Contents :
+//Line x: variables and functions for "fixed" button generation (category buttons, about us, back)
+//Line x: variables and functions for genre generation
+//Line x: variables and functions for generating buttons based on selected category and generated genres
+//Line x: function for FILMS API OUTPUT
+//Line x: function for MUSIC API OUTPUT
+//Line x: function for BOOKS API OUTPUT
+//Line x: function for VIDEOS API OUTPUT
+//Line x till end: function for random button; function for konami code
 
 //stores app's main buttons - used to edit button contents and behaviour; stored in array so that changes can be done in loop
 var appButtons = [];
@@ -31,10 +24,8 @@ function getHtmlButtons(){
   appButtons.push(document.getElementById("container_col2_btn3"));
 }
 
-//WIP
 //arrays of icons that are used on buttons once category is chosen
 var icons = ["fa fa-bicycle", "fa fa-car", "fa fa-truck", "fa fa-plane", "fa fa-rocket", "fa fa-bus"];
-var icons2 = ["glyphicons glyphicons-dice-1", "glyphicons glyphicons-dice-2", "glyphicons glyphicons-dice-3", "glyphicons glyphicons-dice-4", "glyphicons glyphicons-dice-5", "glyphicons glyphicons-dice-6"];
 
 
 //following six functions are used for restoring main buttons to initial state without reloading page; called on BACK button click
@@ -47,7 +38,7 @@ var icons2 = ["glyphicons glyphicons-dice-1", "glyphicons glyphicons-dice-2", "g
 //FILM category button
 function makeFilmsButton(htmlElement){
   htmlElement.innerHTML =
-  '<a href="#" data-toggle="modal" onclick="clickMeFilms()">' +
+  '<a href="#" onclick="clickMeFilms()">' +
   '<i class="glyphicon glyphicon-facetime-video"></i>' +
   '<p>Films</p>' +
   '</a>';
@@ -56,17 +47,16 @@ function makeFilmsButton(htmlElement){
 //MUSIC category button
 function makeMusicButton(htmlElement){
   htmlElement.innerHTML =
-  '<a href="#" data-toggle="modal" onclick="clickMeMusic()">' +
+  '<a href="#" onclick="clickMeMusic()">' +
   '<i class="fa fa-music"></i>' +
   '<p>Music</p>' +
   '</a>';
 }
 
-//TODO: change onclick value once books category is sorted out
 //BOOKS category button
 function makeBooksButton(htmlElement){
   htmlElement.innerHTML =
-  '<a href="#" data-toggle="modal" onclick="clickMeBooks()">' +
+  '<a href="#" onclick="clickMeBooks()">' +
   '<i class="fa fa-book"></i>' +
   '<p>Books</p>' +
   '</a>';
@@ -75,7 +65,7 @@ function makeBooksButton(htmlElement){
 //VIDEO category button
 function makeVideosButton(htmlElement){
   htmlElement.innerHTML =
-  '<a href="#" data-toggle="modal" onclick="clickMeVideo()">' +
+  '<a href="#" onclick="clickMeVideo()">' +
   '<i class="glyphicon glyphicon-hd-video"></i>' +
   '<p>Video</p>' +
   '</a>';
@@ -99,7 +89,6 @@ function makeAboutUsButton(htmlElement){
   '</a>';
 }
 
-//TODO: change order?
 //restoring main buttons to initial state; here you can change order of buttons by editing array's element number
 //currently set to match original order
 function refreshMainButtons(){
@@ -114,7 +103,7 @@ function refreshMainButtons(){
 //BACK button - restores app's main button's initial state upon click
 function makeBackButton(htmlElement){
   htmlElement.innerHTML =
-  '<a href="#" data-toggle="modal" onclick="refreshMainButtons()">' +
+  '<a href="#" onclick="refreshMainButtons()">' +
   '<i class="fa fa-reply"></i>' +
   '<p>Back</p>' +
   '</a>';
@@ -124,7 +113,7 @@ function makeBackButton(htmlElement){
 //contains few randomly chosen genres (amount of genres is set by function's loadGenres parameter)
 var selected_genres = [];
 
-//TODO: edit any genres?
+//TODO: would be better to store film and book genres as objects than strings
 //generates random genres based on category; saved genres are stored in selected_genres array
 function loadGenres(category, amount){
   //creating temporary array and filling it with pool of genres based on given category
@@ -175,7 +164,7 @@ function loadGenres(category, amount){
 } //function loadGenres end
 
 
-//TODO: change icons/images?
+//TODO: change icons?
 //following four functions represent actions of category button's press
 //generates 5 random genres of selected category and changes 5 buttons to represent them
 //upon clicking button, genre is passed to category's function
@@ -261,7 +250,11 @@ function clickMeVideo(){
 //end container to hold html content is div with id=generatedResult
 
 
-// last updated on  21/04 by vlad
+//TODO: would be better to store film genres as objects than strings instead of making long switch statements
+//TODO: get rid of tables
+//TODO: add comments?
+//TODO: add director of film?
+//TODO: change poster alt text
 //FILM API GOES HERE
 function fetchFilmByGenre(filmGenre){
   //code that runs upon film genre button press
@@ -343,9 +336,9 @@ function fetchFilmByGenre(filmGenre){
         do {
           randomindex = Math.floor((Math.random() * 20) + 1);
         } while(randomindex === ri);
-        generatedResult.innerHTML += "<center><img src=https://image.tmdb.org/t/p/w500" + data.results[randomindex].poster_path +" width=" + "189"+" height="+"255"+" alt="+"lorem"+"></center>"
+        generatedResult.innerHTML += "<img src=https://image.tmdb.org/t/p/w500" + data.results[randomindex].poster_path +" width=" + "189"+" height="+"255"+" alt="+"lorem"+">"
         generatedResult.innerHTML += "<div class="+"feature-content"+">"
-        generatedResult.innerHTML += "<h4><center>" + data.results[randomindex].title + "</center></h4>"
+        generatedResult.innerHTML += "<h4>" + data.results[randomindex].title + "</h4>"
         generatedResult.innerHTML += "<div class="+"table-responsive"+">"
         generatedResult.innerHTML += "<table class="+"table"+">"
         generatedResult.innerHTML += "<tr>"
@@ -385,17 +378,21 @@ function fetchMusicByGenre(musicGenre){
   if (musicGenre.id != "") {
     //FOR TESTING
     console.log("Genre: " + musicGenre.name + ", Deezer ID: " + musicGenre.id);
+	//emptying div in case it contains something
 	document.getElementById('generatedResult').innerHTML = '';
     getDeezerSongByGenre(musicGenre.id);
   } else {
     console.log("Selected genre (" + musicGenre.name + ") has no Deezer ID assigned");
   }
-  //document.getElementById("generatedResult").innerHTML += '<p>Music - ' + musicGenre.name + '</p>';
 }
 
 
 
-// last updated on 21/04 by vlad
+//TODO: would be better to store book genres as objects than strings instead of making long switch statements
+//TODO: get rid of tables
+//TODO: add comments?
+//TODO: add author of book?
+//TODO: change cover alt text
 //BOOK API GOES HERE
 function fetchBookByGenre(bookGenre){
     //code that runs upon book genre button press
@@ -410,9 +407,9 @@ function fetchBookByGenre(bookGenre){
       success: function(data) {
         for(i = 0; i < 2; i++){
           try {
-              generatedResult.innerHTML += "<center><img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
+              generatedResult.innerHTML += "<img src=" + data.items[i].volumeInfo.imageLinks.thumbnail + " width=" + "189" + " height=" + "255" + " alt=" + "lorem" + ">"
               generatedResult.innerHTML += "<div class=" + "feature-content" + ">"
-              generatedResult.innerHTML += "<h4><center>" + data.items[i].volumeInfo.title + "</center></h4>"
+              generatedResult.innerHTML += "<h4>" + data.items[i].volumeInfo.title + "</h4>"
               generatedResult.innerHTML += "<div class=" + "table-responsive" + ">"
               generatedResult.innerHTML += "<table class=" + "table" + ">"
               generatedResult.innerHTML += "<tr>"
@@ -434,16 +431,16 @@ function fetchBookByGenre(bookGenre){
               generatedResult.innerHTML += "</br>"
               // defaults the button to a link
               if ("undefined" === typeof data.items[i].saleInfo.buyLin) {
-                  generatedResult.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+                  generatedResult.innerHTML += "<a href='https://play.google.com/store' target=" + "_blank" + "><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></a>"
               } else {
-                  generatedResult.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><center><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></center></a>"
+                  generatedResult.innerHTML += "<a href=" + data.items[i].saleInfo.buyLink + " target=" + "_blank" + "><button class='books_buy_btn' type=" + "button" + "class=" + "btn btn-success" + ">Buy the Book</button></a>"
               }
               generatedResult.innerHTML += "</br>"
               generatedResult.innerHTML += "</div>"
               generatedResult.innerHTML += "</br>"
               generatedResult.innerHTML += "</br>"
           }catch (er12){
-              generatedResult.innerHTML += "<center><img src='images/iljaphoto.jpg' width=" + "189" + " height=" + "255" + " alt=" + "lorem" + "></center>"
+              generatedResult.innerHTML += "<img src='images/iljaphoto.jpg' width=" + "189" + " height=" + "255" + " alt=" + "lorem" + ">"
               generatedResult.innerHTML += "<div class=" + "feature-content" + ">"
               generatedResult.innerHTML += "<h4>N/A</h4>"
               generatedResult.innerHTML += "<div class=" + "table-responsive" + ">"
@@ -662,7 +659,9 @@ function konamiCode() {
 
       console.log("KONAMI CODE! - Now try typing team member's name");
       enteredCode = [];
-    }
+    } //"konami code" check end
+	
+	
     // "ilja" - fixes everything on web page
     if (enteredCode.slice(-4).toString() == "73,76,74,65") {
       console.log('Everything is designed by Ilja Magdenko (with little help of George Clooney)');
@@ -674,14 +673,16 @@ function konamiCode() {
 	  tune.loop = true;
 	  tune.play();
       enteredCode = [];
-    }
+    } //"ilja" end
 
-    // STAR WARS CODE BELOW
+	
+    // "star" - displays star wars intro on subpage
     if (enteredCode.slice(-4).toString() == "83,84,65,82") {
         window.location = "http://gottime.azurewebsites.net/app/extras/star.html";
         enteredCode = []; //dump code
-    }
+    } //"star" end
 
+	
 	// "pony" - puts 15 unicorns and rainbows onto web page
     if (enteredCode.slice(-4).toString() == "80,79,78,89") {
 		$.getScript("http://www.cornify.com/js/cornify.js", function(){
@@ -692,7 +693,7 @@ function konamiCode() {
 		});
 		console.log("success");
         enteredCode = [];
-    }
+    } //"pony" end
 	
   }); //key press actions end
 } //function konamiCode end
